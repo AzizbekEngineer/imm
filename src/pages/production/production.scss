@@ -1,0 +1,551 @@
+$navy: #14204a;
+$navy-deep: #0b1437;
+$blue: #1a56db;
+$teal: #4fe3d0;
+$bg: #eef1f6;
+$text: #5b6577;
+$muted: #8a93a5;
+$line: #dfe5ee;
+
+.production-page {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: $navy;
+
+    a:focus-visible,
+    button:focus-visible {
+        outline: 3px solid $blue;
+        outline-offset: 3px;
+    }
+
+    /* ---------- Umumiy ---------- */
+
+    &__heading {
+        margin: 0 0 28px;
+        color: $navy;
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 1.15;
+    }
+
+    &__photo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 10px;
+        background: linear-gradient(135deg, $navy, #1f3a8a);
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        &--wide {
+            aspect-ratio: 16 / 9;
+        }
+
+        &--product {
+            aspect-ratio: 4 / 3;
+        }
+    }
+
+    &__placeholder {
+        width: 18%;
+        max-width: 110px;
+        height: auto;
+        aspect-ratio: 1;
+        color: $teal;
+        opacity: 0.55;
+    }
+
+    &__card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    &__card-text {
+        min-width: 0;
+    }
+
+    &__card-title {
+        margin: 0 0 4px;
+        color: $navy;
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 1.3;
+    }
+
+    &__card-desc {
+        margin: 0;
+        color: $text;
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    &__card-arrow {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: $bg;
+        color: $navy;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* ---------- Hero ---------- */
+
+    &__hero {
+        position: relative;
+        overflow: hidden;
+        padding: 104px 24px 152px;
+        background-color: $navy-deep;
+        background-size: cover;
+        background-position: center right;
+
+        // matn o'qilishi uchun chapdan qoraytirish
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                    rgba(11, 20, 55, 0.96) 0%,
+                    rgba(11, 20, 55, 0.82) 42%,
+                    rgba(11, 20, 55, 0.15) 100%);
+        }
+    }
+
+    &__hero-mark {
+        position: absolute;
+        right: -24px;
+        bottom: -24px;
+        width: 320px;
+        height: 320px;
+        color: $teal;
+        pointer-events: none;
+    }
+
+    &__hero-inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__hero-label {
+        display: block;
+        margin-bottom: 20px;
+        color: $teal;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    &__hero-title {
+        max-width: 620px;
+        margin: 0 0 22px;
+        color: #ffffff;
+        font-size: clamp(34px, 4.8vw, 56px);
+        font-weight: 800;
+        line-height: 1.08;
+    }
+
+    &__hero-text {
+        max-width: 460px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 18px;
+        line-height: 1.65;
+    }
+
+    /* ---------- Jarayon bosqichlari ---------- */
+
+    &__steps-wrap {
+        position: relative;
+        z-index: 2;
+        margin-top: -64px;
+        padding: 0 24px;
+    }
+
+    &__steps {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin: 0;
+        padding: 32px 40px;
+        list-style: none;
+        background-color: #ffffff;
+        border-radius: 14px;
+        box-shadow: 0 20px 48px rgba(20, 32, 74, 0.14);
+    }
+
+    &__step {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        min-width: 0;
+    }
+
+    &__step-icon {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background-color: $bg;
+        color: $blue;
+    }
+
+    &__step-title {
+        margin: 0 0 4px;
+        color: $navy;
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    &__step-text {
+        margin: 0;
+        color: $text;
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    &__step-arrow {
+        flex-shrink: 0;
+        display: flex;
+        color: $muted;
+    }
+
+    /* ---------- Texnologiya va uskunalar ---------- */
+
+    &__tech {
+        padding: 80px 24px 88px;
+    }
+
+    &__tech-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    &__tech-card {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            .production-page__photo img {
+                transform: scale(1.04);
+            }
+
+            .production-page__card-arrow {
+                background-color: $blue;
+                color: #ffffff;
+            }
+        }
+    }
+
+    /* ---------- Katalog ---------- */
+
+    &__catalog {
+        padding: 80px 24px 88px;
+        background-color: $bg;
+    }
+
+    &__toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+
+    &__tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    &__tab {
+        padding: 12px 24px;
+        border: 1px solid $line;
+        border-radius: 8px;
+        background-color: #ffffff;
+        color: $navy;
+        font: inherit;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+        &:hover {
+            border-color: $blue;
+        }
+
+        &--active {
+            border-color: $blue;
+            background-color: $blue;
+            color: #ffffff;
+        }
+    }
+
+    &__all-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: $blue;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+
+        &:hover {
+            color: $navy;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+    }
+
+    &__all-icon {
+        transition: transform 0.2s ease;
+    }
+
+    &__all-link:hover &__all-icon {
+        transform: translateX(4px);
+    }
+
+    &__products {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    &__product {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 12px 12px 16px;
+        border-radius: 12px;
+        background-color: #ffffff;
+        color: inherit;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(20, 32, 74, 0.05);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+        .production-page__card-footer {
+            padding: 0 6px;
+        }
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(20, 32, 74, 0.12);
+
+            .production-page__photo img {
+                transform: scale(1.04);
+            }
+
+            .production-page__card-arrow {
+                background-color: $blue;
+                color: #ffffff;
+            }
+        }
+    }
+
+    /* ---------- Katalogni yuklash ---------- */
+
+    &__download {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin-top: 40px;
+        padding: 24px 28px;
+        border: 1px solid $line;
+        border-radius: 12px;
+        background-color: #ffffff;
+    }
+
+    &__download-info {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        min-width: 0;
+        color: inherit;
+        text-decoration: none;
+
+        &:hover .production-page__download-title {
+            color: $blue;
+        }
+    }
+
+    &__download-icon {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+        background-color: $bg;
+        color: $blue;
+    }
+
+    &__download-text {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    &__download-title {
+        color: $navy;
+        font-size: 18px;
+        font-weight: 800;
+        transition: color 0.2s ease;
+    }
+
+    &__download-desc {
+        color: $text;
+        font-size: 15px;
+    }
+
+    &__quote {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-width: 240px;
+        padding: 16px 32px;
+        border-radius: 8px;
+        background-color: $blue;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: $navy;
+        }
+    }
+
+    &__quote-icon {
+        transition: transform 0.2s ease;
+    }
+
+    &__quote:hover &__quote-icon {
+        transform: translateX(4px);
+    }
+
+    /* ---------- Responsive ---------- */
+
+    @media (max-width: 992px) {
+        &__hero {
+            padding: 80px 24px 136px;
+        }
+
+        &__hero-mark {
+            width: 240px;
+            height: 240px;
+        }
+
+        &__steps {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+            padding: 28px;
+        }
+
+        &__step-arrow {
+            justify-content: center;
+            transform: rotate(90deg);
+        }
+
+        &__tech,
+        &__catalog {
+            padding: 64px 24px 72px;
+        }
+
+        &__products {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 640px) {
+        &__hero {
+            padding: 56px 20px 120px;
+        }
+
+        &__hero-text {
+            font-size: 16px;
+        }
+
+        &__steps-wrap {
+            padding: 0 20px;
+        }
+
+        &__tech,
+        &__catalog {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        &__heading {
+            font-size: 26px;
+        }
+
+        &__tech-grid,
+        &__products {
+            grid-template-columns: 1fr;
+        }
+
+        &__toolbar {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__tab {
+            padding: 10px 18px;
+        }
+
+        &__download {
+            flex-direction: column;
+            align-items: stretch;
+            padding: 20px;
+        }
+
+        &__quote {
+            min-width: 0;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        &__photo img,
+        &__product,
+        &__all-icon,
+        &__quote-icon {
+            transition: none;
+        }
+
+        &__tech-card:hover &__photo img,
+        &__product:hover,
+        &__product:hover &__photo img {
+            transform: none;
+        }
+    }
+}

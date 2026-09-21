@@ -1,56 +1,36 @@
-// import { createBrowserRouter } from "react-router-dom";
-// import MainLayout from "../layouts/MainLayout";
-// import Home from "../pages/home/Home";
-// import Contact from "../pages/contact/Contact";
-// import Catalog from "../pages/catalog/Catalog";
-// import Distrbut from "../pages/distrbut/Distrbut";
-// import Details from "../pages/details/Details";
-// import SinglePage from "../pages/singlePage/SinglePage";
-// import About from "../pages/about/About";
-// import NewsSingle from "../pages/newsSingle/NewsSingle";
-// import News from "../pages/news/News";
+import { createBrowserRouter } from "react-router-dom";
+import MainLayout from "../layouts/MainLayouts";
+import Home from "../pages/home/Home";
+import Company from "../pages/company/Company";
+import Contact from "../pages/contact/Contact";
+import News from "../pages/news/News";
+import Production from "../pages/production/Production";
 
-// export const router = createBrowserRouter([
-//     {
-//         path: "/",
-//         element: <MainLayout />,
-//         children: [
-//             {
-//                 path: "/",
-//                 element: <Home />
-//             },
-//             {
-//                 path: "/about",
-//                 element: <About />
-//             },
-//             {
-//                 path: "/contact",
-//                 element: <Contact />
-//             },
-//             {
-//                 path: "/catalog",
-//                 element: <Catalog />
-//             },
-//             {
-//                 path: "/distrbuter",
-//                 element: <Distrbut />
-//             },
-//             {
-//                 path: "/categories/:id",
-//                 element: <Details />
-//             },
-//             {
-//                 path: "/single-products/:id",
-//                 element: <SinglePage />
-//             },
-//             {
-//                 path: "/news-single/:id",
-//                 element: <NewsSingle />
-//             },
-//             {
-//                 path: "/news",
-//                 element: <News />
-//             }
-//         ]
-//     }
-// ])
+export const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <MainLayout />,
+        children: [
+            {
+                path: "/",
+                element: <Home />
+            },
+            {
+                path: "/company",
+                element: <Company />
+            },
+            {
+                path: "/contact",
+                element: <Contact />
+            },
+            {
+                path: "/news",
+                element: <News />
+            },
+            {
+                path: "/production",
+                element: <Production />
+            },
+        ]
+    }
+])

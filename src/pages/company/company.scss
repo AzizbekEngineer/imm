@@ -1,0 +1,574 @@
+$navy: #14204a;
+$navy-deep: #0b1437;
+$blue: #1a56db;
+$teal: #4fe3d0;
+$bg: #eef1f6;
+$text: #5b6577;
+$muted: #8a93a5;
+$line: #dfe5ee;
+
+.company {
+    width: 100%;
+    background-color: #ffffff;
+    color: $navy;
+
+    a:focus-visible {
+        outline: 3px solid $teal;
+        outline-offset: 3px;
+    }
+
+    /* ---------- Umumiy ---------- */
+
+    &__heading {
+        margin: 0 0 20px;
+        color: $navy;
+        font-size: 28px;
+        font-weight: 800;
+        line-height: 1.15;
+
+        &--lg {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+    }
+
+    &__section-head {
+        max-width: 560px;
+        margin-bottom: 48px;
+    }
+
+    &__section-text {
+        margin: 0;
+        color: $text;
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    /* ---------- Hero ---------- */
+
+    &__hero {
+        position: relative;
+        overflow: hidden;
+        padding: 112px 24px 152px;
+        background-color: $navy-deep;
+        background-size: cover;
+        background-position: center;
+
+        // matn o'qilishi uchun chapdan qoraytirish
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                    rgba(11, 20, 55, 0.96) 0%,
+                    rgba(11, 20, 55, 0.8) 45%,
+                    rgba(11, 20, 55, 0.3) 100%);
+        }
+    }
+
+    &__hero-mark {
+        position: absolute;
+        right: -24px;
+        bottom: -24px;
+        width: 380px;
+        height: 380px;
+        color: $teal;
+        pointer-events: none;
+    }
+
+    &__hero-inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__hero-label {
+        display: block;
+        margin-bottom: 20px;
+        color: $teal;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    &__hero-title {
+        max-width: 640px;
+        margin: 0 0 24px;
+        color: #ffffff;
+        font-size: clamp(36px, 5vw, 60px);
+        font-weight: 800;
+        line-height: 1.05;
+    }
+
+    &__hero-text {
+        max-width: 480px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 18px;
+        line-height: 1.65;
+    }
+
+    /* ---------- Raqamlar ---------- */
+
+    &__stats-wrap {
+        position: relative;
+        z-index: 2;
+        margin-top: -64px;
+        padding: 0 24px;
+    }
+
+    &__stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 32px 0;
+        background-color: #ffffff;
+        border-radius: 14px;
+        box-shadow: 0 20px 48px rgba(20, 32, 74, 0.14);
+    }
+
+    &__stat {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 4px 32px;
+
+        &+& {
+            border-left: 1px solid $line;
+        }
+    }
+
+    &__stat-value {
+        color: $navy;
+        font-size: 44px;
+        font-weight: 800;
+        line-height: 1;
+        font-variant-numeric: tabular-nums;
+    }
+
+    &__stat-label {
+        color: $text;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    /* ---------- Mission + Journey ---------- */
+
+    &__about {
+        padding: 88px 24px 96px;
+    }
+
+    &__about-inner {
+        display: grid;
+        grid-template-columns: 5fr 7fr;
+        gap: 72px;
+        align-items: start;
+    }
+
+    &__mission {
+        position: relative;
+        padding-bottom: 8px;
+    }
+
+    &__mission-text {
+        max-width: 440px;
+        margin: 0;
+        color: $text;
+        font-size: 17px;
+        line-height: 1.75;
+    }
+
+    &__mission-mark {
+        display: block;
+        width: 88px;
+        height: 88px;
+        margin-top: 32px;
+        color: $teal;
+    }
+
+    &__timeline {
+        display: flex;
+        margin: 36px 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__milestone {
+        position: relative;
+        flex: 1;
+        padding-right: 28px;
+
+        // nuqtalarni tutashtiruvchi chiziq
+        &::before {
+            content: "";
+            position: absolute;
+            top: 9px;
+            left: 20px;
+            right: 0;
+            height: 2px;
+            background-color: rgba(26, 86, 219, 0.28);
+        }
+
+        &:last-child::before {
+            display: none;
+        }
+    }
+
+    &__dot {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: $blue;
+        box-shadow: 0 0 0 5px rgba(26, 86, 219, 0.14);
+    }
+
+    &__year {
+        display: block;
+        margin-top: 20px;
+        color: $navy;
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    &__milestone-text {
+        margin: 6px 0 0;
+        color: $text;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    /* ---------- Values ---------- */
+
+    &__values {
+        padding: 88px 24px;
+        background-color: $bg;
+    }
+
+    &__values-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+    }
+
+    &__value {
+        padding-top: 28px;
+        border-top: 2px solid $navy;
+    }
+
+    &__value-icon {
+        display: block;
+        margin-bottom: 20px;
+        color: $blue;
+    }
+
+    &__value-title {
+        margin: 0 0 10px;
+        color: $navy;
+        font-size: 19px;
+        font-weight: 700;
+    }
+
+    &__value-text {
+        margin: 0;
+        color: $text;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    /* ---------- Process ---------- */
+
+    &__process {
+        padding: 88px 24px 96px;
+    }
+
+    &__steps {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__step {
+        position: relative;
+
+        // raqamlarni tutashtiruvchi chiziq
+        &::after {
+            content: "";
+            position: absolute;
+            top: 21px;
+            left: 56px;
+            right: -16px;
+            height: 2px;
+            background-color: $line;
+        }
+
+        &:last-child::after {
+            display: none;
+        }
+    }
+
+    &__step-number {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin-bottom: 20px;
+        border-radius: 50%;
+        background-color: $navy;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    &__step-title {
+        margin: 0 0 8px;
+        color: $navy;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    &__step-text {
+        margin: 0;
+        color: $text;
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    /* ---------- CTA ---------- */
+
+    &__cta {
+        position: relative;
+        overflow: hidden;
+        padding: 72px 24px;
+        background-color: $navy;
+    }
+
+    &__cta-mark {
+        position: absolute;
+        right: -20px;
+        bottom: -20px;
+        width: 260px;
+        height: 260px;
+        color: $teal;
+        opacity: 0.55;
+        pointer-events: none;
+    }
+
+    &__cta-inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+    }
+
+    &__cta-title {
+        margin: 0 0 10px;
+        color: #ffffff;
+        font-size: 38px;
+        font-weight: 800;
+        line-height: 1.1;
+    }
+
+    &__cta-text {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 17px;
+    }
+
+    &__cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+        margin-right: 120px;
+        padding: 16px 32px;
+        border-radius: 8px;
+        background-color: $teal;
+        color: $navy-deep;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: #ffffff;
+        }
+    }
+
+    &__cta-icon {
+        transition: transform 0.2s ease;
+    }
+
+    &__cta-button:hover &__cta-icon {
+        transform: translateX(4px);
+    }
+
+    /* ---------- Responsive ---------- */
+
+    @media (max-width: 992px) {
+        &__hero {
+            padding: 88px 24px 136px;
+        }
+
+        &__hero-mark {
+            width: 280px;
+            height: 280px;
+        }
+
+        &__stats {
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 28px;
+        }
+
+        &__stat:nth-child(3) {
+            border-left: none;
+        }
+
+        &__about {
+            padding: 64px 24px 72px;
+        }
+
+        &__about-inner {
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        &__mission-mark {
+            display: none;
+        }
+
+        &__values,
+        &__process {
+            padding: 64px 24px;
+        }
+
+        &__values-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 32px;
+        }
+
+        &__steps {
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+
+        &__step {
+            display: flex;
+            gap: 20px;
+
+            &::after {
+                top: 44px;
+                bottom: -28px;
+                left: 21px;
+                right: auto;
+                width: 2px;
+                height: auto;
+            }
+        }
+
+        &__step-number {
+            flex-shrink: 0;
+            margin-bottom: 0;
+        }
+
+        &__cta-inner {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__cta-button {
+            margin-right: 0;
+        }
+    }
+
+    @media (max-width: 640px) {
+        &__hero {
+            padding: 64px 20px 120px;
+        }
+
+        &__hero-text {
+            font-size: 16px;
+        }
+
+        &__stats-wrap {
+            padding: 0 20px;
+        }
+
+        &__stats {
+            padding: 24px 0;
+        }
+
+        &__stat {
+            padding: 4px 20px;
+        }
+
+        &__stat-value {
+            font-size: 34px;
+        }
+
+        &__about,
+        &__values,
+        &__process {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        &__heading--lg {
+            font-size: 30px;
+        }
+
+        &__timeline {
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        &__milestone {
+            padding: 0 0 0 40px;
+
+            &::before {
+                top: 22px;
+                bottom: -28px;
+                left: 9px;
+                right: auto;
+                width: 2px;
+                height: auto;
+            }
+        }
+
+        &__dot {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        &__year {
+            margin-top: 0;
+        }
+
+        &__values-grid {
+            grid-template-columns: 1fr;
+        }
+
+        &__cta {
+            padding: 56px 20px;
+        }
+
+        &__cta-title {
+            font-size: 30px;
+        }
+
+        &__cta-button {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}

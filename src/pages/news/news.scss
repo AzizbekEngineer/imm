@@ -1,1 +1,329 @@
-//news.scss
+$navy: #14204a;
+$navy-deep: #0b1437;
+$blue: #1a56db;
+$teal: #4fe3d0;
+$page-bg: #f5f7fb;
+$text: #5b6577;
+$line: #dfe5ee;
+
+.news-page {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: $page-bg;
+    color: $navy;
+
+    &__hero {
+        position: relative;
+        overflow: hidden;
+        padding: 64px 24px 60px;
+        background-color: $navy-deep;
+        background-size: cover;
+        background-position: center right;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                    rgba(11, 20, 55, 0.96) 0%,
+                    rgba(11, 20, 55, 0.82) 45%,
+                    rgba(11, 20, 55, 0.25) 100%);
+        }
+    }
+
+    &__hero-mark {
+        position: absolute;
+        right: -20px;
+        bottom: -20px;
+        width: 200px;
+        height: 200px;
+        color: $teal;
+        pointer-events: none;
+    }
+
+    &__hero-inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__hero-label {
+        display: block;
+        margin-bottom: 16px;
+        color: $teal;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    &__hero-title {
+        max-width: 720px;
+        margin: 0 0 12px;
+        color: #ffffff;
+        font-size: clamp(30px, 4.4vw, 48px);
+        font-weight: 800;
+        line-height: 1.1;
+    }
+
+    &__hero-text {
+        max-width: 480px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    &__body {
+        padding: 56px 24px 88px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+        gap: 48px 40px;
+    }
+
+    &__side {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    &__card {
+        position: relative; // butun karta bosiladigan bo'lishi uchun
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    &__content {
+        display: block;
+    }
+
+    &__media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 8px;
+        background: linear-gradient(135deg, $navy, #1f3a8a);
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+    }
+
+    &__placeholder {
+        width: 22%;
+        max-width: 120px;
+        height: auto;
+        aspect-ratio: 1;
+        color: $teal;
+        opacity: 0.55;
+    }
+
+    &__card:hover &__media img {
+        transform: scale(1.04);
+    }
+
+    &__card-title {
+        margin: 0 0 10px;
+        color: $navy;
+        font-size: 19px;
+        font-weight: 800;
+        line-height: 1.3;
+    }
+
+    &__text {
+        margin: 0 0 18px;
+        color: $text;
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: $blue;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+        }
+
+        &:focus-visible {
+            outline: none;
+        }
+
+        &:focus-visible::after {
+            outline: 3px solid $blue;
+            outline-offset: 6px;
+        }
+    }
+
+    &__arrow {
+        transition: transform 0.2s ease;
+    }
+
+    &__card:hover &__link {
+        color: $navy;
+    }
+
+    &__card:hover &__arrow {
+        transform: translateX(4px);
+    }
+
+    &__card--featured {
+        flex-direction: column;
+
+        .news-page__media {
+            aspect-ratio: 16 / 9;
+            margin-bottom: 22px;
+        }
+
+        .news-page__card-title {
+            font-size: 24px;
+        }
+    }
+
+    &__card--side {
+        flex: 1;
+        gap: 24px;
+
+        .news-page__media {
+            flex: 0 0 46%;
+            aspect-ratio: 4 / 3;
+        }
+
+        .news-page__content {
+            flex: 1;
+            min-width: 0;
+        }
+    }
+
+    &__card--spotlight {
+        grid-column: 1 / -1;
+        align-items: center;
+        gap: 40px;
+        padding-top: 48px;
+        border-top: 1px solid $line;
+
+        .news-page__media {
+            flex: 0 0 34%;
+            aspect-ratio: 4 / 3;
+        }
+
+        .news-page__content {
+            flex: 1;
+            max-width: 620px;
+        }
+
+        .news-page__card-title {
+            font-size: 26px;
+        }
+
+        .news-page__text {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        // border-top ustida ham link maydoni to'g'ri qolishi uchun
+        .news-page__link::after {
+            top: 48px;
+        }
+    }
+
+    /* ---------- Responsive ---------- */
+
+    @media (max-width: 900px) {
+        &__hero {
+            padding: 52px 24px 48px;
+        }
+
+        &__body {
+            padding: 44px 24px 72px;
+        }
+
+        &__grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        &__card--spotlight {
+            gap: 32px;
+
+            .news-page__media {
+                flex-basis: 40%;
+            }
+        }
+    }
+
+    @media (max-width: 640px) {
+        &__hero {
+            padding: 44px 20px 40px;
+        }
+
+        &__hero-text {
+            font-size: 16px;
+        }
+
+        &__hero-mark {
+            width: 140px;
+            height: 140px;
+        }
+
+        &__body {
+            padding: 32px 20px 56px;
+        }
+
+        &__card--side,
+        &__card--spotlight {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+
+            .news-page__media {
+                flex: none;
+                width: 100%;
+            }
+        }
+
+        &__card--spotlight {
+            padding-top: 32px;
+
+            .news-page__link::after {
+                top: 32px;
+            }
+        }
+
+        &__card--featured .news-page__card-title,
+        &__card--spotlight .news-page__card-title {
+            font-size: 21px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        &__media img,
+        &__arrow {
+            transition: none;
+        }
+
+        &__card:hover &__media img,
+        &__card:hover &__arrow {
+            transform: none;
+        }
+    }
+}
