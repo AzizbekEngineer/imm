@@ -1,0 +1,367 @@
+// .careers {
+//     position: relative;
+//     width: 100%;
+//     background-color: #0f2050;
+//     background-size: cover;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     overflow: hidden;
+//     height: 400px;
+
+//     &__overlay {
+//         position: absolute;
+//         inset: 0;
+//         background: linear-gradient(90deg,
+//                 rgba(10, 20, 60, 0.75) 0%,
+//                 rgba(10, 20, 60, 0.85) 55%,
+//                 rgba(10, 20, 60, 0.95) 100%);
+//         z-index: 1;
+//     }
+
+//     &__container {
+//         position: relative;
+//         z-index: 2;
+//         display: grid;
+//         grid-template-columns: 1fr 1fr;
+//         gap: 40px;
+//         padding: 48px 24px;
+//         min-height: 300px;
+//     }
+
+//     /* Left text block */
+//     &__info {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
+//     }
+
+//     &__label {
+//         color: rgba(255, 255, 255, 0.6);
+//         font-size: 12px;
+//         font-weight: 700;
+//         letter-spacing: 2px;
+//         text-transform: uppercase;
+//         margin-bottom: 12px;
+//     }
+
+//     &__title {
+//         color: #ffffff;
+//         font-size: 32px;
+//         font-weight: 800;
+//         margin: 0 0 12px;
+//         line-height: 1.2;
+//     }
+
+//     &__subtitle {
+//         color: rgba(255, 255, 255, 0.75);
+//         font-size: 15px;
+//         line-height: 1.5;
+//         margin: 0;
+//         max-width: 420px;
+//     }
+
+//     &__slogan {
+//         display: flex;
+//         flex-direction: column;
+//         gap: 2px;
+//         margin-top: 32px;
+
+//         span {
+//             color: rgba(255, 255, 255, 0.35);
+//             font-size: 18px;
+//             font-weight: 700;
+//             letter-spacing: 1px;
+//             text-transform: uppercase;
+//         }
+//     }
+
+//     /* Right vacancies list */
+//     &__vacancies {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         border-top: 1px solid rgba(255, 255, 255, 0.15);
+//     }
+
+//     &__vacancies-header {
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         padding: 16px 0;
+//         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+//         color: rgba(255, 255, 255, 0.5);
+//         font-size: 13px;
+//         font-weight: 500;
+//     }
+
+//     &__all-link {
+//         display: flex;
+//         align-items: center;
+//         gap: 6px;
+//         color: rgba(255, 255, 255, 0.9);
+//         font-size: 13px;
+//         font-weight: 600;
+//         text-decoration: none;
+
+//         &:hover {
+//             color: #3fe0c5;
+//         }
+//     }
+
+//     &__vacancy-list {
+//         list-style: none;
+//         margin: 0;
+//         padding: 0;
+//     }
+
+//     &__vacancy-item {
+//         display: flex;
+//         align-items: center;
+//         gap: 16px;
+//         padding: 18px 0;
+//         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+//     }
+
+//     &__vacancy-title {
+//         flex: 1;
+//         color: #ffffff;
+//         font-size: 16px;
+//         font-weight: 600;
+//     }
+
+//     &__view-link {
+//         display: flex;
+//         align-items: center;
+//         gap: 6px;
+//         color: rgba(255, 255, 255, 0.85);
+//         font-size: 14px;
+//         font-weight: 600;
+//         text-decoration: none;
+//         white-space: nowrap;
+
+//         &:hover {
+//             color: #3fe0c5;
+//         }
+//     }
+
+//     &__icon {
+//         flex-shrink: 0;
+//         color: rgba(255, 255, 255, 0.6);
+
+//         &--arrow {
+//             color: rgba(255, 255, 255, 0.85);
+//         }
+//     }
+
+//     /* Responsive */
+//     @media (max-width: 900px) {
+//         &__container {
+//             grid-template-columns: 1fr;
+//             gap: 32px;
+//         }
+
+//         &__title {
+//             font-size: 26px;
+//         }
+//     }
+
+//     @media (max-width: 576px) {
+//         &__container {
+//             padding: 36px 20px;
+//         }
+
+//         &__vacancy-item {
+//             flex-wrap: wrap;
+//             gap: 8px;
+//         }
+
+//         &__vacancy-title {
+//             flex: 1 1 100%;
+//         }
+//     }
+// }
+
+.careers {
+    position: relative;
+    width: 100%;
+    background-color: #0f2050;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg,
+                rgba(10, 20, 60, 0.75) 0%,
+                rgba(10, 20, 60, 0.85) 55%,
+                rgba(10, 20, 60, 0.95) 100%);
+        z-index: 1;
+    }
+
+    &__container {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 40px;
+        padding: 48px 24px;
+    }
+
+    /* Left text block */
+    &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__label {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    &__title {
+        color: #ffffff;
+        font-size: 32px;
+        font-weight: 800;
+        margin: 0 0 12px;
+        line-height: 1.2;
+    }
+
+    &__subtitle {
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 15px;
+        line-height: 1.5;
+        margin: 0;
+        max-width: 420px;
+    }
+
+    &__slogan {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-top: 32px;
+
+        span {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    }
+
+    /* Right vacancies list */
+    &__vacancies {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    &__vacancies-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    &__all-link {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+            color: #3fe0c5;
+        }
+    }
+
+    &__vacancy-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__vacancy-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    &__vacancy-title {
+        flex: 1;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    &__view-link {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+
+        &:hover {
+            color: #3fe0c5;
+        }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        color: rgba(255, 255, 255, 0.6);
+
+        &--arrow {
+            color: rgba(255, 255, 255, 0.85);
+        }
+    }
+
+    @media (max-width: 900px) {
+        &__container {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        &__title {
+            font-size: 26px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        &__container {
+            padding: 36px 20px;
+        }
+
+        &__vacancy-item {
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        &__vacancy-title {
+            flex: 1 1 100%;
+        }
+    }
+}
