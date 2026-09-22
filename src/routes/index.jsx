@@ -7,30 +7,30 @@ import News from "../pages/news/News";
 import Production from "../pages/production/Production";
 
 export const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
         path: "/",
-        element: <MainLayout />,
-        children: [
-            {
-                path: "/",
-                element: <Home />
-            },
-            {
-                path: "/company",
-                element: <Company />
-            },
-            {
-                path: "/contact",
-                element: <Contact />
-            },
-            {
-                path: "/news",
-                element: <News />
-            },
-            {
-                path: "/production",
-                element: <Production />
-            },
-        ]
-    }
-])
+        element: <Home />,
+      },
+      {
+        path: "/company",
+        element: <Company />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/news",
+        element: <News />,
+      },
+      {
+        path: "/production",
+        element: <Production />,
+      },
+    ],
+  },
+]);

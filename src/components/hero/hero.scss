@@ -20,6 +20,11 @@
         z-index: 0;
     }
 
+    &__container {
+        position: relative; // stacking context yaratadi
+        z-index: 3; // overlay(0), stripes(1), side-text(2) dan yuqori
+    }
+
     &__brand {
         color: #ffffff;
         font-size: 13px;

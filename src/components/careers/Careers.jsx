@@ -1,112 +1,114 @@
-import React from 'react'
-import img from "../../assets/images/careers.jpeg"
+import React from "react";
+import img from "../../assets/images/careers.jpeg";
 
-import "./careers.scss"
+import "./careers.scss";
 
 const vacancies = [
-    { title: "Production engineer", href: "/careers/production-engineer" },
-    { title: "Quality specialist", href: "/careers/quality-specialist" },
-    { title: "Manufacturing operator", href: "/careers/manufacturing-operator" },
-]
+  { title: "Инженер производства", href: "/careers/production-engineer" },
+  { title: "Специалист по качеству", href: "/careers/quality-specialist" },
+  { title: "Оператор производства", href: "/careers/manufacturing-operator" },
+];
 
 const Careers = () => {
-    return (
-        <section
-            className="careers"
-            style={{ backgroundImage: `url(${img})` }}
-        >
-            <div className="careers__overlay" />
+  return (
+    <section className="careers" style={{ backgroundImage: `url(${img})` }}>
+      <div className="careers__overlay" />
 
-            <div className="careers__container container">
+      <div className="careers__container container">
+        {/* Левый текстовый блок */}
+        <div className="careers__info">
+          <span className="careers__label">Вакансии</span>
 
-                {/* Left text block */}
-                <div className="careers__info">
-                    <span className="careers__label">Careers</span>
-                    <h2 className="careers__title">Build your future with us.</h2>
-                    <p className="careers__subtitle">
-                        Join a team that shapes the future of automotive interior solutions.
-                    </p>
+          <h2 className="careers__title">
+            Постройте своё будущее вместе с нами.
+          </h2>
 
-                    <div className="careers__slogan">
-                        <span>Great people</span>
-                        <span>Build</span>
-                        <span>Brighter roads</span>
-                    </div>
-                </div>
+          <p className="careers__subtitle">
+            Присоединяйтесь к команде, которая формирует будущее решений для
+            автомобильных интерьеров.
+          </p>
 
-                {/* Right vacancies list */}
-                <div className="careers__vacancies">
-                    <div className="careers__vacancies-header">
-                        <span>Illustrative vacancies</span>
-                        <a href="/careers" className="careers__all-link">
-                            All vacancies
-                            <svg
-                                className="careers__icon"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M5 12H19M19 12L12 5M19 12L12 19"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
-                        </a>
-                    </div>
+          <div className="careers__slogan">
+            <span>Отличные специалисты</span>
+            <span>Создают</span>
+            <span>Светлое будущее</span>
+          </div>
+        </div>
 
-                    <ul className="careers__vacancy-list">
-                        {vacancies.map((vacancy) => (
-                            <li className="careers__vacancy-item" key={vacancy.title}>
-                                <span className="careers__vacancy-title">{vacancy.title}</span>
+        {/* Правый список вакансий */}
+        <div className="careers__vacancies">
+          <div className="careers__vacancies-header">
+            <span>Примеры вакансий</span>
 
-                                <svg
-                                    className="careers__icon careers__icon--arrow"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M5 12H19M19 12L12 5M19 12L12 19"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
+            <a href="/careers" className="careers__all-link">
+              Все вакансии
+              <svg
+                className="careers__icon"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 12H19M19 12L12 5M19 12L12 19"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
 
-                                <a href={vacancy.href} className="careers__view-link">
-                                    View role
-                                    <svg
-                                        className="careers__icon"
-                                        width="14"
-                                        height="14"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M5 12H19M19 12L12 5M19 12L12 19"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        />
-                                    </svg>
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-        </section>
-    )
-}
+          <ul className="careers__vacancy-list">
+            {vacancies.map((vacancy) => (
+              <li className="careers__vacancy-item" key={vacancy.title}>
+                <span className="careers__vacancy-title">{vacancy.title}</span>
 
-export default Careers
+                <svg
+                  className="careers__icon careers__icon--arrow"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+
+                <a href={vacancy.href} className="careers__view-link">
+                  Подробнее
+                  <svg
+                    className="careers__icon"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 12H19M19 12L12 5M19 12L12 19"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Careers;
