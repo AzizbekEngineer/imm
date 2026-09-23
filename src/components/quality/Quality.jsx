@@ -270,6 +270,8 @@ const Quality = () => {
         <div className="quality-section__overlay" />
         <div className="quality-section__accent" />
 
+        
+
         <div className="quality-section__content container">
           <span className="quality-section__label">НАШ ПОДХОД</span>
           <h2 className="quality-section__title">Качество на каждом этапе.</h2>
