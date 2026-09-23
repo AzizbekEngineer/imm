@@ -11,21 +11,16 @@ const footerLinks = [
       { label: "О компании", href: "/company" },
       { label: "Новости", href: "/news" },
       { label: "Вакансии", href: "/careers" },
+      { label: "Производство", href: "/production" },
+      { label: "Контакты", href: "/contact" },
     ],
   },
   {
     title: "Производство",
     links: [
-      { label: "Технологии и оборудование", href: "/production/technology" },
-      { label: "Производственный процесс", href: "/production/process" },
-      { label: "Каталог продукции", href: "/production/catalog" },
-    ],
-  },
-  {
-    title: "Качество",
-    links: [
-      { label: "Контроль качества", href: "/quality" },
-      { label: "Сертификаты", href: "/quality/documents" },
+      { label: "Технологии и оборудование", href: "/company" },
+      { label: "Производственный процесс", href: "/news" },
+      { label: "Каталог продукции", href: "/production" },
     ],
   },
 ];

@@ -1,7 +1,7 @@
 import React from "react";
-import img1 from "../../assets/images/engine.png";
-import img2 from "../../assets/images/engine.png";
-import img3 from "../../assets/images/engine.png";
+import img1 from "../../assets/images/proiz1.webp";
+import img2 from "../../assets/images/proiz2.webp";
+import img3 from "../../assets/images/proiz3.webp";
 
 import "./engine.scss";
 
@@ -11,20 +11,20 @@ const cards = [
     title: "Технологии и оборудование",
     description:
       "Современное оборудование для точного и эффективного производства.",
-    href: "/production/technology",
+    href: "/company",
   },
   {
     image: img2,
     title: "Производственный процесс",
     description:
       "Оптимизированный процесс от проектирования до готового продукта.",
-    href: "/production/process",
+    href: "/news",
   },
   {
     image: img3,
     title: "Каталог продукции",
     description: "Широкий ассортимент компонентов автомобильного интерьера.",
-    href: "/production/catalog",
+    href: "/production",
   },
 ];
 
