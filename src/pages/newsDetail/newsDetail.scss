@@ -5,7 +5,6 @@
     --line: #ebe8e8;
 
     padding: 56px 0 80px;
-    max-width: 760px;
 
     &__back {
         display: inline-block;
@@ -13,7 +12,7 @@
         font-weight: 600;
         color: var(--muted);
         text-decoration: none;
-        margin-bottom: 24px;
+        margin-bottom: 14px;
 
         &:hover {
             color: var(--ink);

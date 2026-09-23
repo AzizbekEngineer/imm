@@ -330,8 +330,8 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
-import img1 from "../../assets/images/product1.avif";
-import img2 from "../../assets/images/product2.png";
+import img1 from "../../assets/images/product1.webp";
+import img2 from "../../assets/images/product2.webp";
 import products, { ALL_CATEGORY, categories } from "../../static/index";
 
 import "./production.scss";

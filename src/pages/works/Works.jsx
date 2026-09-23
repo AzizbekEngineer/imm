@@ -151,7 +151,7 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
-import img from "../../assets/images/works.png"
+import img from "../../assets/images/works.webp"
 import { vacancies } from '../../static/index'
 import "./works.scss"
 
