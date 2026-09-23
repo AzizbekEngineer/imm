@@ -9,6 +9,7 @@ import Works from "../pages/works/Works";
 import VacancyDetail from "../pages/vakancy-detail/VakancyDetail";
 import NewsDetail from "../pages/newsDetail/NewsDetail";
 import Quality from "../components/quality/Quality";
+import ProductDetail from "../components/productDetail/ProductDetail";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path: "/vacancies/:id",
         element: <VacancyDetail />,
+      },
+      {
+        path: "/products/:slug",
+        element: <ProductDetail />,
       },
       {
         path: "/news/:id",
