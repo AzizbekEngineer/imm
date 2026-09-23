@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../../assets/images/export.jpeg";
+import img from "../../assets/images/export.webp";
 import "./export.scss";
 
 const Export = () => {

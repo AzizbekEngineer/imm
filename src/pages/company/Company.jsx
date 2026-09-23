@@ -317,7 +317,7 @@
 
 
 import React, { useEffect, useRef, useState } from 'react'
-import img from "../../assets/images/company.png"
+import img from "../../assets/images/company.webp"
 
 import "./company.scss"
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import img from "../../assets/images/careers.jpeg";
+import img from "../../assets/images/careers.webp";
 import { vacancies } from "../../static/index";
 
 import "./careers.scss";

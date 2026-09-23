@@ -169,7 +169,7 @@
 
 
 import React from "react";
-import heroImage from "../../assets/images/quality-hero.png";
+import heroImage from "../../assets/images/quality-hero.webp";
 import file1 from "../../assets/sertificate/one.pdf";
 import file2 from "../../assets/sertificate/two.pdf";
 import "./quality.scss";

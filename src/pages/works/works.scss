@@ -17,7 +17,7 @@ $text-muted: #6b7686;
         position: relative;
         background-size: cover;
         background-position: center;
-        min-height: 400px;
+        min-height: 450px;
         display: flex;
         align-items: center;
     }
@@ -25,14 +25,13 @@ $text-muted: #6b7686;
     &__hero-overlay {
         width: 100%;
         background: linear-gradient(90deg, rgba($navy-dark, 0.96) 0%, rgba($navy-dark, 0.78) 45%, rgba($navy-dark, 0.15) 85%);
-        min-height: 400px;
+        min-height: 450px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
     &__hero-content {
-        max-width: 520px;
         color: #fff;
     }
 

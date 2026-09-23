@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react"
-import img from "../../assets/images/contact.png"
+import img from "../../assets/images/contact.webp"
 
 import "./contact.scss"
 

@@ -26,7 +26,6 @@ const NewsDetail = () => {
             </Link>
 
             <div className="news-detail__head">
-                {item.date && <span className="news-detail__date">{item.date}</span>}
                 <h1 className="news-detail__title">{item.title}</h1>
             </div>
 
