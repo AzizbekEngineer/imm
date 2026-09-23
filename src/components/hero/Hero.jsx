@@ -47,7 +47,7 @@ const Hero = () => {
             </svg>
           </a>
 
-          <a href="/quote" className="hero__btn hero__btn--outline">
+          <a href="/quality" className="hero__btn hero__btn--outline">
             Запросить расчёт стоимости
           </a>
         </div>

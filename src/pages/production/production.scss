@@ -31,6 +31,7 @@
 //     }
 
 //     &__photo {
+//         position: relative;
 //         display: flex;
 //         align-items: center;
 //         justify-content: center;
@@ -62,6 +63,20 @@
 //         aspect-ratio: 1;
 //         color: $teal;
 //         opacity: 0.55;
+//     }
+
+//     &__product-tag {
+//         display: inline-flex;
+//         align-self: flex-start;
+//         margin: 4px 6px 0;
+//         padding: 5px 12px;
+//         border-radius: 999px;
+//         background-color: $bg;
+//         color: $blue;
+//         font-size: 11px;
+//         font-weight: 700;
+//         letter-spacing: 0.4px;
+//         text-transform: uppercase;
 //     }
 
 //     &__card-footer {
@@ -113,7 +128,6 @@
 //         background-size: cover;
 //         background-position: center right;
 
-//         // matn o'qilishi uchun chapdan qoraytirish
 //         &::before {
 //             content: "";
 //             position: absolute;
@@ -337,7 +351,7 @@
 //     &__product {
 //         display: flex;
 //         flex-direction: column;
-//         gap: 16px;
+//         gap: 12px;
 //         padding: 12px 12px 16px;
 //         border-radius: 12px;
 //         background-color: #ffffff;
@@ -559,6 +573,44 @@ $text: #5b6577;
 $muted: #8a93a5;
 $line: #dfe5ee;
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroFade {
+    from {
+        opacity: 0;
+        transform: translateY(36px) scale(1.01);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes pulseRing {
+    0% {
+        box-shadow: 0 0 0 0 rgba(26, 86, 219, 0.35);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(26, 86, 219, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(26, 86, 219, 0);
+    }
+}
+
 .production-page {
     width: 100%;
     margin: 0;
@@ -572,14 +624,13 @@ $line: #dfe5ee;
         outline-offset: 3px;
     }
 
-    /* ---------- Umumiy ---------- */
-
     &__heading {
         margin: 0 0 28px;
         color: $navy;
         font-size: 30px;
         font-weight: 800;
         line-height: 1.15;
+        position: relative;
     }
 
     &__photo {
@@ -596,7 +647,7 @@ $line: #dfe5ee;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         &--wide {
@@ -629,6 +680,7 @@ $line: #dfe5ee;
         font-weight: 700;
         letter-spacing: 0.4px;
         text-transform: uppercase;
+        transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     &__card-footer {
@@ -667,7 +719,7 @@ $line: #dfe5ee;
         border-radius: 50%;
         background-color: $bg;
         color: $navy;
-        transition: background-color 0.2s ease, color 0.2s ease;
+        transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
     }
 
     /* ---------- Hero ---------- */
@@ -675,7 +727,7 @@ $line: #dfe5ee;
     &__hero {
         position: relative;
         overflow: hidden;
-        padding: 104px 24px 152px;
+        padding: 104px 0px 152px;
         background-color: $navy-deep;
         background-size: cover;
         background-position: center right;
@@ -689,21 +741,38 @@ $line: #dfe5ee;
                     rgba(11, 20, 55, 0.82) 42%,
                     rgba(11, 20, 55, 0.15) 100%);
         }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center right;
+            transform: scale(1.08);
+            animation: heroZoom 16s ease-in-out infinite alternate;
+            z-index: 0;
+        }
     }
 
-    &__hero-mark {
-        position: absolute;
-        right: -24px;
-        bottom: -24px;
-        width: 320px;
-        height: 320px;
-        color: $teal;
-        pointer-events: none;
+    @keyframes heroZoom {
+        from {
+            transform: scale(1.08);
+        }
+
+        to {
+            transform: scale(1);
+        }
     }
 
     &__hero-inner {
         position: relative;
         z-index: 1;
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    &__hero--visible &__hero-inner {
+        animation: heroFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
     &__hero-label {
@@ -733,13 +802,11 @@ $line: #dfe5ee;
         line-height: 1.65;
     }
 
-    /* ---------- Jarayon bosqichlari ---------- */
 
     &__steps-wrap {
         position: relative;
         z-index: 2;
         margin-top: -64px;
-        padding: 0 24px;
     }
 
     &__steps {
@@ -760,6 +827,18 @@ $line: #dfe5ee;
         align-items: center;
         gap: 18px;
         min-width: 0;
+        opacity: 0;
+        transform: translateY(24px);
+        transition: transform 0.3s ease;
+    }
+
+    &__steps-wrap--visible &__step {
+        animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        animation-delay: var(--reveal-delay, 0ms);
+    }
+
+    &__step:hover {
+        transform: translateY(-4px);
     }
 
     &__step-icon {
@@ -772,6 +851,13 @@ $line: #dfe5ee;
         border-radius: 50%;
         background-color: $bg;
         color: $blue;
+        transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    }
+
+    &__step:hover &__step-icon {
+        background-color: $blue;
+        color: #ffffff;
+        transform: scale(1.08) rotate(-6deg);
     }
 
     &__step-title {
@@ -798,6 +884,30 @@ $line: #dfe5ee;
 
     &__tech {
         padding: 80px 24px 88px;
+
+        &__heading::after {
+            content: "";
+        }
+    }
+
+    &__heading {
+        &::after {
+            content: "";
+            display: block;
+            margin-top: 12px;
+            width: 56px;
+            height: 4px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, $blue, $teal);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+    }
+
+    &__tech--visible &__heading::after,
+    &__catalog--visible &__heading::after {
+        transform: scaleX(1);
     }
 
     &__tech-grid {
@@ -812,17 +922,30 @@ $line: #dfe5ee;
         gap: 20px;
         color: inherit;
         text-decoration: none;
+        opacity: 0;
+        transform: translateY(28px);
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+            box-shadow 0.35s ease;
+        border-radius: 14px;
 
         &:hover {
+            transform: translateY(-6px);
+
             .production-page__photo img {
-                transform: scale(1.04);
+                transform: scale(1.06);
             }
 
             .production-page__card-arrow {
                 background-color: $blue;
                 color: #ffffff;
+                transform: translateX(4px);
             }
         }
+    }
+
+    &__tech--visible &__tech-card {
+        animation: fadeInUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        animation-delay: var(--reveal-delay, 0ms);
     }
 
     /* ---------- Katalog ---------- */
@@ -848,6 +971,7 @@ $line: #dfe5ee;
     }
 
     &__tab {
+        position: relative;
         padding: 12px 24px;
         border: 1px solid $line;
         border-radius: 8px;
@@ -857,16 +981,23 @@ $line: #dfe5ee;
         font-size: 15px;
         font-weight: 600;
         cursor: pointer;
-        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        overflow: hidden;
+        transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
 
         &:hover {
             border-color: $blue;
+            transform: translateY(-2px);
+        }
+
+        &:active {
+            transform: translateY(0);
         }
 
         &--active {
             border-color: $blue;
             background-color: $blue;
             color: #ffffff;
+            animation: pulseRing 0.6s ease-out;
         }
     }
 
@@ -887,7 +1018,7 @@ $line: #dfe5ee;
     }
 
     &__all-icon {
-        transition: transform 0.2s ease;
+        transition: transform 0.25s ease;
     }
 
     &__all-link:hover &__all-icon {
@@ -910,25 +1041,39 @@ $line: #dfe5ee;
         color: inherit;
         text-decoration: none;
         box-shadow: 0 2px 8px rgba(20, 32, 74, 0.05);
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        opacity: 0;
+        transform: translateY(24px);
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+            box-shadow 0.3s ease;
 
         .production-page__card-footer {
             padding: 0 6px;
         }
 
         &:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             box-shadow: 0 16px 32px rgba(20, 32, 74, 0.12);
 
             .production-page__photo img {
-                transform: scale(1.04);
+                transform: scale(1.06);
             }
 
             .production-page__card-arrow {
                 background-color: $blue;
                 color: #ffffff;
+                transform: translateX(4px);
+            }
+
+            .production-page__product-tag {
+                background-color: $blue;
+                color: #ffffff;
             }
         }
+    }
+
+    &__catalog--visible &__product {
+        animation: fadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        animation-delay: var(--reveal-delay, 0ms);
     }
 
     /* ---------- Katalogni yuklash ---------- */
@@ -943,6 +1088,17 @@ $line: #dfe5ee;
         border: 1px solid $line;
         border-radius: 12px;
         background-color: #ffffff;
+        opacity: 0;
+        transform: translateY(24px);
+        transition: box-shadow 0.3s ease;
+
+        &--visible {
+            animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        &:hover {
+            box-shadow: 0 12px 28px rgba(20, 32, 74, 0.08);
+        }
     }
 
     &__download-info {
@@ -956,6 +1112,12 @@ $line: #dfe5ee;
         &:hover .production-page__download-title {
             color: $blue;
         }
+
+        &:hover .production-page__download-icon {
+            background-color: $blue;
+            color: #ffffff;
+            transform: scale(1.06);
+        }
     }
 
     &__download-icon {
@@ -968,6 +1130,7 @@ $line: #dfe5ee;
         border-radius: 12px;
         background-color: $bg;
         color: $blue;
+        transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
     }
 
     &__download-text {
@@ -1002,15 +1165,21 @@ $line: #dfe5ee;
         font-size: 16px;
         font-weight: 700;
         text-decoration: none;
-        transition: background-color 0.2s ease;
+        transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 
         &:hover {
             background-color: $navy;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(20, 32, 74, 0.22);
+        }
+
+        &:active {
+            transform: translateY(0);
         }
     }
 
     &__quote-icon {
-        transition: transform 0.2s ease;
+        transition: transform 0.25s ease;
     }
 
     &__quote:hover &__quote-icon {
@@ -1022,11 +1191,6 @@ $line: #dfe5ee;
     @media (max-width: 992px) {
         &__hero {
             padding: 80px 24px 136px;
-        }
-
-        &__hero-mark {
-            width: 240px;
-            height: 240px;
         }
 
         &__steps {
@@ -1100,6 +1264,27 @@ $line: #dfe5ee;
     }
 
     @media (prefers-reduced-motion: reduce) {
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.001ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.001ms !important;
+        }
+
+        &__hero-inner,
+        &__step,
+        &__tech-card,
+        &__product,
+        &__download {
+            opacity: 1;
+            transform: none;
+        }
+
+        &__hero::after {
+            animation: none;
+        }
 
         &__photo img,
         &__product,

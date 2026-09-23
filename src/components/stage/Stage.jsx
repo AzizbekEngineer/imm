@@ -44,7 +44,7 @@ const Stage = () => {
             удовлетворённость клиентов.
           </p>
 
-          <a href="/quality/documents" className="stage__link">
+          <a href="/quality" className="stage__link">
             Посмотреть документы о качестве
             <ArrowIcon className="stage__link-icon" />
           </a>
