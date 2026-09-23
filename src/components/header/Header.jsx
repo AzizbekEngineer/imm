@@ -2,41 +2,69 @@ import React, { useState } from "react";
 import icons from "../../assets/icons/icons.png";
 
 import "./header.scss";
-import { router } from "../../routes";
 import { MENU } from "../../constants/menu";
+import { useLocation, Link } from "react-router-dom";
 
 const languages = ["UZ", "RU", "EN"];
 
 const Header = () => {
-  const [activeLink, setActiveLink] = useState("");
+  const loc = useLocation();
   const [activeLang, setActiveLang] = useState("EN");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header className="header">
       <div className="header__container container">
-        <a href="/" className="header__logo">
+        <Link to="/" className="header__logo" onClick={closeMenu}>
           <img src={icons} alt="" />
-        </a>
+        </Link>
 
-        <nav className="header__nav">
+        <nav className={`header__nav ${menuOpen ? "header__nav--open" : ""}`}>
           <ul className="header__nav-list">
             {MENU?.map((link) => (
               <li key={link.id}>
-                <a
-                  href={link.path}
+                <Link
+                  to={link.path}
                   className={`header__nav-link ${
-                    activeLink === link.title ? "header__nav-link--active" : ""
+                    loc.pathname === link.path ? "header__nav-link--active" : ""
                   }`}
-                  onClick={() => setActiveLink(link.title)}
+                  onClick={closeMenu}
                 >
                   {link.title}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
+
+          {/* Mobilda til va CTA ham menyu ichida ko'rinsin */}
+          <div className="header__nav-mobile-extra">
+            <div className="header__lang">
+              {languages.map((lang, index) => (
+                <React.Fragment key={lang}>
+                  <span
+                    className={`header__lang-item ${
+                      activeLang === lang ? "header__lang-item--active" : ""
+                    }`}
+                    onClick={() => setActiveLang(lang)}
+                  >
+                    {lang}
+                  </span>
+                  {index < languages.length - 1 && (
+                    <span className="header__lang-divider">/</span>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+
+            <Link to="/contact" className="header__cta" onClick={closeMenu}>
+              Запросить цену
+            </Link>
+          </div>
         </nav>
 
-        <div className="header__lang">
+        <div className="header__lang header__lang--desktop">
           {languages.map((lang, index) => (
             <React.Fragment key={lang}>
               <span
@@ -54,7 +82,7 @@ const Header = () => {
           ))}
         </div>
 
-        <a href="" to={"/contact"} className="header__cta">
+        <Link to="/contact" className="header__cta header__cta--desktop">
           Запросить цену
           <svg
             className="header__cta-icon"
@@ -72,7 +100,18 @@ const Header = () => {
               strokeLinejoin="round"
             />
           </svg>
-        </a>
+        </Link>
+
+        {/* Burger tugma faqat mobil/planshetda ko'rinadi */}
+        <button
+          className={`header__burger ${menuOpen ? "header__burger--open" : ""}`}
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
   );
