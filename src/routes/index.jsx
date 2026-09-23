@@ -1,60 +1,68 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayouts";
-import Home from "../pages/home/Home";
-import Company from "../pages/company/Company";
-import Contact from "../pages/contact/Contact";
-import News from "../pages/news/News";
-import Production from "../pages/production/Production";
-import Works from "../pages/works/Works";
-import VacancyDetail from "../pages/vakancy-detail/VakancyDetail";
-import NewsDetail from "../pages/newsDetail/NewsDetail";
-import Quality from "../components/quality/Quality";
-import ProductDetail from "../components/productDetail/ProductDetail";
+import Lazy from "../components/leazy/Lazy";
+
+const Home = lazy(() => import("../pages/home/Home"));
+const Company = lazy(() => import("../pages/company/Company"));
+const Contact = lazy(() => import("../pages/contact/Contact"));
+const News = lazy(() => import("../pages/news/News"));
+const Production = lazy(() => import("../pages/production/Production"));
+const Works = lazy(() => import("../pages/works/Works"));
+const VacancyDetail = lazy(
+  () => import("../pages/vakancy-detail/VakancyDetail"),
+);
+const NewsDetail = lazy(() => import("../pages/newsDetail/NewsDetail"));
+const Quality = lazy(() => import("../components/quality/Quality"));
+const ProductDetail = lazy(
+  () => import("../components/productDetail/ProductDetail"),
+);
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    hydrateFallbackElement: <Lazy />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Home />,
       },
       {
-        path: "/company",
+        path: "company",
         element: <Company />,
       },
       {
-        path: "/contact",
+        path: "contact",
         element: <Contact />,
       },
       {
-        path: "/news",
+        path: "news",
         element: <News />,
       },
       {
-        path: "/production",
+        path: "news/:id",
+        element: <NewsDetail />,
+      },
+      {
+        path: "production",
         element: <Production />,
       },
       {
-        path: "/vacancies",
-        element: <Works />,
-      },
-      {
-        path: "/quality",
-        element: <Quality />,
-      },
-      {
-        path: "/vacancies/:id",
-        element: <VacancyDetail />,
-      },
-      {
-        path: "/products/:slug",
+        path: "products/:slug",
         element: <ProductDetail />,
       },
       {
-        path: "/news/:id",
-        element: <NewsDetail />,
+        path: "vacancies",
+        element: <Works />,
+      },
+      {
+        path: "vacancies/:id",
+        element: <VacancyDetail />,
+      },
+      {
+        path: "quality",
+        element: <Quality />,
       },
     ],
   },
