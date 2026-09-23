@@ -23,6 +23,11 @@ export const MENU = [
   },
   {
     id: 5,
+    title: "Карьера",
+    path: ROUTES.CAREERS,
+  },
+  {
+    id: 5,
     title: "Контакты",
     path: ROUTES.CONTACT,
   },

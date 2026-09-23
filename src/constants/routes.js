@@ -4,5 +4,6 @@ export const ROUTES = {
     NEWS: "/news",
     CONTACT: "/contact",
     PROD: "/production",
+    CAREERS: "/vacancies",
     NOT_FOUND: "*",
 };

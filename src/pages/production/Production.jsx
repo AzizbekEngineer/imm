@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import img from "../../assets/images/production.png"
+import img from "../../assets/images/product1.avif"
 
 import "./production.scss"
 

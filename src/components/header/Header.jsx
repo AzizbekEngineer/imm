@@ -68,9 +68,8 @@ const Header = () => {
           {languages.map((lang, index) => (
             <React.Fragment key={lang}>
               <span
-                className={`header__lang-item ${
-                  activeLang === lang ? "header__lang-item--active" : ""
-                }`}
+                className={`header__lang-item ${activeLang === lang ? "header__lang-item--active" : ""
+                  }`}
                 onClick={() => setActiveLang(lang)}
               >
                 {lang}
