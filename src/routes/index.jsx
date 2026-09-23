@@ -5,6 +5,9 @@ import Company from "../pages/company/Company";
 import Contact from "../pages/contact/Contact";
 import News from "../pages/news/News";
 import Production from "../pages/production/Production";
+import Works from "../pages/works/Works";
+import VacancyDetail from "../pages/vakancy-detail/VakancyDetail";
+import NewsDetail from "../pages/newsDetail/NewsDetail";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +33,18 @@ export const router = createBrowserRouter([
       {
         path: "/production",
         element: <Production />,
+      },
+      {
+        path: "/vacancies",
+        element: <Works />,
+      },
+      {
+        path: "/vacancies/:id",
+        element: <VacancyDetail />,
+      },
+      {
+        path: "/news/:id",
+        element: <NewsDetail />,
       },
     ],
   },

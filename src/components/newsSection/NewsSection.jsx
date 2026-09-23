@@ -1,27 +1,9 @@
 import React from "react";
-import img from "../../assets/images/news.png";
+import { Link } from "react-router-dom";
+import { getNewsById } from "../../static/index";
 import "./newsSection.scss";
 
-const news = [
-  {
-    title: "Подробнее о производстве",
-    text: "Знакомство с нашими современными производственными мощностями и процессами.",
-    href: "/news/production",
-    image: img,
-  },
-  {
-    title: "Люди, стоящие за процессом",
-    text: "Наша команда каждый день способствует нашему развитию.",
-    href: "/news/team",
-    image: img,
-  },
-  {
-    title: "Наш подход к качеству",
-    text: "Как мы обеспечиваем точность в каждой детали.",
-    href: "/news/quality",
-    image: img,
-  },
-];
+const sectionItemIds = ["production", "team", "quality"];
 
 const ArrowIcon = ({ size = 16 }) => (
   <svg
@@ -43,6 +25,10 @@ const ArrowIcon = ({ size = 16 }) => (
 );
 
 const NewsSection = () => {
+  const items = sectionItemIds
+    .map((id) => getNewsById(id))
+    .filter(Boolean);
+
   return (
     <section className="news">
       <div className="news__container container">
@@ -52,15 +38,15 @@ const NewsSection = () => {
             <h2 className="news__title">О компании INTERIOR MEGA MAX</h2>
           </div>
 
-          <a href="/news" className="news__all-link">
+          <Link to="/news" className="news__all-link">
             Все новости
             <ArrowIcon size={16} />
-          </a>
+          </Link>
         </div>
 
         <div className="news__grid">
-          {news.map((item) => (
-            <a href={item.href} className="news__card" key={item.title}>
+          {items.map((item) => (
+            <Link to={`/news/${item.id}`} className="news__card" key={item.id}>
               <div className="news__image-wrap">
                 <img
                   src={item.image}
@@ -72,12 +58,12 @@ const NewsSection = () => {
               <div className="news__content">
                 <div className="news__text">
                   <h3 className="news__card-title">{item.title}</h3>
-                  <p className="news__card-text">{item.text}</p>
+                  <p className="news__card-text">{item.excerpt}</p>
                 </div>
 
                 <ArrowIcon size={18} />
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

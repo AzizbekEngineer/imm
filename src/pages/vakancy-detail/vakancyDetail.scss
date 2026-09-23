@@ -1,0 +1,184 @@
+$navy-dark: #101b33;
+$navy: #16264a;
+$teal: #2fd4c0;
+$teal-dark: #21a894;
+$bg: #f4f6fa;
+$card: #ffffff;
+$border: #e2e7f0;
+$text: #16264a;
+$text-muted: #6b7686;
+
+.vacancy-detail {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: $text;
+    background: $bg;
+    min-height: 60vh;
+
+    &__back {
+        display: inline-block;
+        color: $text-muted;
+        font-size: 13.5px;
+        text-decoration: none;
+        margin-bottom: 18px;
+
+        &:hover {
+            color: $navy;
+        }
+    }
+
+    &__not-found {
+        padding-top: 40px;
+        font-size: 15px;
+        color: $text-muted;
+    }
+
+    &__head {
+        padding-top: 40px;
+        padding-bottom: 24px;
+
+        h1 {
+            font-size: 30px;
+            font-weight: 600;
+            margin: 0 0 10px;
+        }
+    }
+
+    &__summary {
+        color: $text-muted;
+        font-size: 15px;
+        max-width: 560px;
+        margin: 0;
+    }
+
+    &__body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        padding-bottom: 56px;
+    }
+
+    &__lead {
+        color: $text-muted;
+        font-size: 14px;
+        line-height: 1.55;
+        margin: 0 0 12px;
+    }
+
+    &__info {
+        h4 {
+            font-size: 14px;
+            margin: 20px 0 8px;
+        }
+
+        li {
+            color: $text-muted;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+    }
+
+    &__form {
+        background: $card;
+        border: 1px solid $border;
+        border-radius: 12px;
+        padding: 24px;
+        align-self: start;
+
+        h3 {
+            font-size: 18px;
+            margin: 0 0 18px;
+        }
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 14px;
+
+        span:first-child {
+            font-size: 13px;
+            font-weight: 600;
+            color: $text;
+        }
+
+        input {
+            border: 1px solid $border;
+            border-radius: 7px;
+            padding: 10px 12px;
+            font-size: 14px;
+            font-family: inherit;
+            color: $text;
+            background: #fbfcfe;
+
+            &:focus {
+                outline: none;
+                border-color: $teal-dark;
+                box-shadow: 0 0 0 3px rgba($teal, 0.18);
+            }
+
+            &::placeholder {
+                color: #a3aab8;
+            }
+        }
+    }
+
+    &__upload {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid $border;
+        border-radius: 7px;
+        padding: 6px;
+        cursor: pointer;
+        background: #fbfcfe;
+    }
+
+    &__upload-btn {
+        background: #eef1f6;
+        border-radius: 5px;
+        padding: 6px 12px;
+        font-size: 13px;
+        font-weight: 600;
+        color: $text;
+    }
+
+    &__upload-name {
+        font-size: 13px;
+        color: $text-muted;
+    }
+
+    &__submit {
+        width: 100%;
+        margin-top: 8px;
+        background: $teal;
+        color: $navy-dark;
+        border: none;
+        border-radius: 7px;
+        padding: 13px 16px;
+        font-size: 14.5px;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: background 0.15s ease;
+
+        &:hover {
+            background: $teal-dark;
+            color: #fff;
+        }
+    }
+
+    @media (max-width: 720px) {
+        &__body {
+            grid-template-columns: 1fr;
+        }
+    }
+}

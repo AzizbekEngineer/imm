@@ -24,9 +24,8 @@ const Header = () => {
               <li key={link.id}>
                 <a
                   href={link.path}
-                  className={`header__nav-link ${
-                    activeLink === link.title ? "header__nav-link--active" : ""
-                  }`}
+                  className={`header__nav-link ${activeLink === link.title ? "header__nav-link--active" : ""
+                    }`}
                   onClick={() => setActiveLink(link.title)}
                 >
                   {link.title}
@@ -40,9 +39,8 @@ const Header = () => {
           {languages.map((lang, index) => (
             <React.Fragment key={lang}>
               <span
-                className={`header__lang-item ${
-                  activeLang === lang ? "header__lang-item--active" : ""
-                }`}
+                className={`header__lang-item ${activeLang === lang ? "header__lang-item--active" : ""
+                  }`}
                 onClick={() => setActiveLang(lang)}
               >
                 {lang}

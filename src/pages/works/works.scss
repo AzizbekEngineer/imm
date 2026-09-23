@@ -1,0 +1,312 @@
+$navy-dark: #101b33;
+$navy: #16264a;
+$teal: #2fd4c0;
+$teal-dark: #21a894;
+$bg: #f4f6fa;
+$card: #ffffff;
+$border: #e2e7f0;
+$text: #16264a;
+$text-muted: #6b7686;
+
+.works {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: $text;
+    background: $bg;
+
+    &__hero {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__hero-overlay {
+        width: 100%;
+        background: linear-gradient(90deg, rgba($navy-dark, 0.96) 0%, rgba($navy-dark, 0.78) 45%, rgba($navy-dark, 0.15) 85%);
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__hero-content {
+        max-width: 520px;
+        color: #fff;
+    }
+
+    &__eyebrow {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: $teal;
+        margin-bottom: 14px;
+    }
+
+    &__headline {
+        font-size: 38px;
+        line-height: 1.15;
+        font-weight: 500;
+        margin: 0 0 14px;
+    }
+
+    &__subtext {
+        font-size: 16px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.78);
+        margin: 0;
+        max-width: 400px;
+    }
+
+    &__link {
+        color: $navy;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+
+        span {
+            transition: transform 0.15s ease;
+        }
+
+        &:hover span {
+            transform: translateX(3px);
+        }
+
+        &--small {
+            font-size: 13px;
+        }
+    }
+
+    &__list {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+
+    &__list-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 16px;
+
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+        }
+    }
+
+    &__vacancies {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background: $card;
+        border: 1px solid $border;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    &__vacancy {
+        display: grid;
+        grid-template-columns: 40px 220px 1fr auto;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 20px;
+        border-bottom: 1px solid $border;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &__vacancy-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        background: rgba($navy, 0.06);
+        color: $navy;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    &__vacancy-title {
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    &__vacancy-summary {
+        color: $text-muted;
+        font-size: 13.5px;
+    }
+
+    &__detail {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        padding-bottom: 56px;
+    }
+
+    &__detail-info {
+        background: transparent;
+
+        h3 {
+            font-size: 20px;
+            margin: 0 0 8px;
+        }
+
+        h4 {
+            font-size: 14px;
+            margin: 20px 0 8px;
+        }
+
+        p,
+        li {
+            color: $text-muted;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+    }
+
+    &__form {
+        background: $card;
+        border: 1px solid $border;
+        border-radius: 12px;
+        padding: 24px;
+
+        h3 {
+            font-size: 18px;
+            margin: 0 0 18px;
+        }
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 14px;
+
+        span:first-child {
+            font-size: 13px;
+            font-weight: 600;
+            color: $text;
+        }
+
+        input {
+            border: 1px solid $border;
+            border-radius: 7px;
+            padding: 10px 12px;
+            font-size: 14px;
+            font-family: inherit;
+            color: $text;
+            background: #fbfcfe;
+
+            &:focus {
+                outline: none;
+                border-color: $teal-dark;
+                box-shadow: 0 0 0 3px rgba($teal, 0.18);
+            }
+
+            &::placeholder {
+                color: #a3aab8;
+            }
+        }
+    }
+
+    &__upload {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid $border;
+        border-radius: 7px;
+        padding: 6px;
+        cursor: pointer;
+        background: #fbfcfe;
+    }
+
+    &__upload-btn {
+        background: #eef1f6;
+        border-radius: 5px;
+        padding: 6px 12px;
+        font-size: 13px;
+        font-weight: 600;
+        color: $text;
+    }
+
+    &__upload-name {
+        font-size: 13px;
+        color: $text-muted;
+    }
+
+    &__submit {
+        width: 100%;
+        margin-top: 8px;
+        background: $teal;
+        color: $navy-dark;
+        border: none;
+        border-radius: 7px;
+        padding: 13px 16px;
+        font-size: 14.5px;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: background 0.15s ease;
+
+        &:hover {
+            background: $teal-dark;
+            color: #fff;
+        }
+    }
+
+    @media (max-width: 720px) {
+        &__headline {
+            font-size: 26px;
+        }
+
+        &__vacancy {
+            grid-template-columns: 32px 1fr;
+            grid-template-areas:
+                "icon title"
+                "summary summary"
+                "link link";
+            row-gap: 4px;
+        }
+
+        &__vacancy-icon {
+            grid-area: icon;
+        }
+
+        &__vacancy-title {
+            grid-area: title;
+        }
+
+        &__vacancy-summary {
+            grid-area: summary;
+        }
+
+        &__vacancy-link {
+            grid-area: link;
+        }
+
+        &__detail {
+            grid-template-columns: 1fr;
+        }
+    }
+}
