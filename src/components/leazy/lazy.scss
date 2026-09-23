@@ -75,10 +75,10 @@ $accent: #3fe0c5;
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 60vh;
+    min-height: 100vh;
     background-color: $bg;
     animation: lazy-fade-in 0.3s ease both;
-position: fixed;
+
     &--fullscreen {
         position: fixed;
         inset: 0;
