@@ -27,9 +27,8 @@ const Header = () => {
               <li key={link.id}>
                 <Link
                   to={link.path}
-                  className={`header__nav-link ${
-                    loc.pathname === link.path ? "header__nav-link--active" : ""
-                  }`}
+                  className={`header__nav-link ${loc.pathname === link.path ? "header__nav-link--active" : ""
+                    }`}
                   onClick={closeMenu}
                 >
                   {link.title}
@@ -38,15 +37,13 @@ const Header = () => {
             ))}
           </ul>
 
-          {/* Mobilda til va CTA ham menyu ichida ko'rinsin */}
           <div className="header__nav-mobile-extra">
-            <div className="header__lang">
+            {/* <div className="header__lang">
               {languages.map((lang, index) => (
                 <React.Fragment key={lang}>
                   <span
-                    className={`header__lang-item ${
-                      activeLang === lang ? "header__lang-item--active" : ""
-                    }`}
+                    className={`header__lang-item ${activeLang === lang ? "header__lang-item--active" : ""
+                      }`}
                     onClick={() => setActiveLang(lang)}
                   >
                     {lang}
@@ -56,15 +53,15 @@ const Header = () => {
                   )}
                 </React.Fragment>
               ))}
-            </div>
+            </div> */}
 
             <Link to="/contact" className="header__cta" onClick={closeMenu}>
-              Запросить цену
+              Контакты
             </Link>
           </div>
         </nav>
 
-        <div className="header__lang header__lang--desktop">
+        {/* <div className="header__lang header__lang--desktop">
           {languages.map((lang, index) => (
             <React.Fragment key={lang}>
               <span
@@ -79,10 +76,10 @@ const Header = () => {
               )}
             </React.Fragment>
           ))}
-        </div>
+        </div> */}
 
         <Link to="/contact" className="header__cta header__cta--desktop">
-          Запросить цену
+          Контакты
           <svg
             className="header__cta-icon"
             width="16"
@@ -101,7 +98,6 @@ const Header = () => {
           </svg>
         </Link>
 
-        {/* Burger tugma faqat mobil/planshetda ko'rinadi */}
         <button
           className={`header__burger ${menuOpen ? "header__burger--open" : ""}`}
           onClick={() => setMenuOpen((prev) => !prev)}

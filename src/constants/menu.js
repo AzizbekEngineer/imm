@@ -26,9 +26,9 @@ export const MENU = [
     title: "Карьера",
     path: ROUTES.CAREERS,
   },
-  {
-    id: 5,
-    title: "Контакты",
-    path: ROUTES.CONTACT,
-  },
+  // {
+  //   id: 5,
+  //   title: "Контакты",
+  //   path: ROUTES.CONTACT,
+  // },
 ];

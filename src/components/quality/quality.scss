@@ -1,3 +1,300 @@
+// .quality-section {
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     min-height: 420px;
+//     overflow: hidden;
+//     background-color: #0a1420;
+//     font-family: 'Arial', sans-serif;
+
+//     &__image {
+//         position: absolute;
+//         inset: 0;
+//         background-image: linear-gradient(to right,
+//                 rgba(6, 14, 24, 0.95) 0%,
+//                 rgba(6, 14, 24, 0.75) 40%,
+//                 rgba(6, 14, 24, 0.15) 100%),
+//             // Замените url() на путь к вашему изображению станка/производства
+//             url('../../assets/images/quality-hero.png');
+//         background-size: cover;
+//         background-position: center;
+//         z-index: 0;
+//     }
+
+//     &__overlay {
+//         position: absolute;
+//         inset: 0;
+//         background: linear-gradient(90deg,
+//                 rgba(4, 10, 20, 0.9) 0%,
+//                 rgba(4, 10, 20, 0.4) 55%,
+//                 rgba(4, 10, 20, 0) 100%);
+//         z-index: 1;
+//     }
+
+//     &__accent {
+//         position: absolute;
+//         top: 0;
+//         right: 0;
+//         bottom: 0;
+//         width: 140px;
+//         background: linear-gradient(160deg, #17c3d6 0%, #0d7ea8 100%);
+//         clip-path: polygon(60% 0, 100% 0, 40% 100%, 0% 100%);
+//         z-index: 2;
+
+//         @media (max-width: 768px) {
+//             display: none;
+//         }
+//     }
+
+//     &__content {
+//         position: relative;
+//         z-index: 3;
+//         max-width: 480px;
+//         padding: 32px 0px;
+//         color: #ffffff;
+//     }
+
+//     &__label {
+//         display: block;
+//         font-size: 12px;
+//         font-weight: 700;
+//         letter-spacing: 2px;
+//         text-transform: uppercase;
+//         color: #4fd1de;
+//         margin-bottom: 12px;
+//     }
+
+//     &__title {
+//         font-size: 48px;
+//         font-weight: 700;
+//         line-height: 1.2;
+//         padding: 30px 0;
+
+//         @media (max-width: 480px) {
+//             font-size: 22px;
+//         }
+//     }
+
+//     &__text {
+//         max-width: 600px;
+//         font-size: 18px;
+//         line-height: 1.6;
+//         color: rgba(255, 255, 255, 0.8);
+//         margin: 0;
+//     }
+// }
+
+// .quality-features {
+//     font-family: 'Arial', sans-serif;
+//     color: #1a2233;
+//     padding: 32px 0px;
+//     background: #ffffff;
+
+//     &__grid {
+//         display: grid;
+//         grid-template-columns: repeat(3, 1fr);
+//         gap: 20px;
+//         margin-bottom: 36px;
+
+//         @media (max-width: 768px) {
+//             grid-template-columns: 1fr;
+//         }
+//     }
+
+//     &__cert-header {
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         flex-wrap: wrap;
+//         gap: 8px;
+//         margin-bottom: 18px;
+//     }
+
+//     &__cert-title {
+//         font-size: 17px;
+//         font-weight: 700;
+//         margin: 0;
+//     }
+
+//     &__cert-note {
+//         font-size: 12px;
+//         color: #2f8bf0;
+//     }
+
+//     &__docs {
+//         display: grid;
+//         grid-template-columns: repeat(2, 1fr);
+//         gap: 18px;
+//         margin-bottom: 28px;
+
+//         @media (max-width: 768px) {
+//             grid-template-columns: 1fr;
+//         }
+//     }
+
+//     &__commitment {
+//         position: relative;
+//         display: flex;
+//         align-items: center;
+//         gap: 16px;
+//         background: #eef4fb;
+//         border-radius: 10px;
+//         padding: 18px 0px;
+//         overflow: hidden;
+//     }
+
+//     &__commitment-icon {
+//         flex-shrink: 0;
+//         width: 30px;
+//         height: 30px;
+//         color: #2f8bf0;
+//     }
+
+//     &__commitment-text {
+//         h4 {
+//             margin: 0 0 4px;
+//             font-size: 14px;
+//             font-weight: 700;
+//         }
+
+//         p {
+//             margin: 0;
+//             font-size: 13px;
+//             color: #5a6474;
+//         }
+//     }
+
+//     &__commitment-shape {
+//         position: absolute;
+//         right: 24px;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         width: 44px;
+//         height: 44px;
+//         background: linear-gradient(160deg, #17c3d6 0%, #0d7ea8 100%);
+//         clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+//         opacity: 0.9;
+
+//         @media (max-width: 480px) {
+//             display: none;
+//         }
+//     }
+// }
+
+// .feature-card {
+//     border: 1px solid #e3e8ef;
+//     border-radius: 10px;
+//     padding: 18px;
+
+//     &__icon {
+//         width: 26px;
+//         height: 26px;
+//         color: #2f8bf0;
+//         margin-bottom: 10px;
+//     }
+
+//     &__title {
+//         font-size: 14px;
+//         font-weight: 700;
+//         margin: 0 0 6px;
+//     }
+
+//     &__text {
+//         font-size: 12.5px;
+//         line-height: 1.5;
+//         color: #5a6474;
+//         margin: 0;
+//     }
+// }
+
+// .doc-card {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     border: 1px solid #e3e8ef;
+//     border-radius: 10px;
+//     padding: 20px;
+//     background: #ffffff;
+
+//     &__icon {
+//         align-self: center;
+//         width: 34px;
+//         height: 34px;
+//         color: #2f8bf0;
+//         margin: 8px 0 10px;
+//     }
+
+//     &__placeholder {
+//         align-self: center;
+//         font-size: 11.5px;
+//         color: #9aa4b2;
+//         margin-bottom: 16px;
+//     }
+
+//     &__name {
+//         font-size: 13.5px;
+//         font-weight: 700;
+//         margin: 0 0 12px;
+//     }
+
+//     &__download {
+//         display: flex;
+//         align-items: center;
+//         gap: 6px;
+//         font-size: 12.5px;
+//         font-weight: 600;
+//         color: #2f8bf0;
+//         text-decoration: none;
+
+//         svg {
+//             width: 14px;
+//             height: 14px;
+//         }
+
+//         span:last-of-type {
+//             margin-left: auto;
+//         }
+
+//         &:hover {
+//             text-decoration: underline;
+//         }
+//     }
+// }
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
 .quality-section {
     position: relative;
     display: flex;
@@ -10,14 +307,10 @@
     &__image {
         position: absolute;
         inset: 0;
-        background-image: linear-gradient(to right,
-                rgba(6, 14, 24, 0.95) 0%,
-                rgba(6, 14, 24, 0.75) 40%,
-                rgba(6, 14, 24, 0.15) 100%),
-            // Замените url() на путь к вашему изображению станка/производства
-            url('../../assets/images/quality-hero.png');
         background-size: cover;
         background-position: center;
+        transform: scale(1.05);
+        animation: fadeUp 1s ease-out;
         z-index: 0;
     }
 
@@ -38,7 +331,9 @@
         bottom: 0;
         width: 140px;
         background: linear-gradient(160deg, #17c3d6 0%, #0d7ea8 100%);
+        background-size: 200% 200%;
         clip-path: polygon(60% 0, 100% 0, 40% 100%, 0% 100%);
+        animation: shimmer 6s linear infinite;
         z-index: 2;
 
         @media (max-width: 768px) {
@@ -50,8 +345,9 @@
         position: relative;
         z-index: 3;
         max-width: 480px;
-        padding: 32px 24px;
+        padding: 32px 0px;
         color: #ffffff;
+        animation: fadeUp 0.8s ease-out both;
     }
 
     &__label {
@@ -84,72 +380,81 @@
     }
 }
 
-
-
-//*****************
-
-
 .quality-features {
     font-family: 'Arial', sans-serif;
     color: #1a2233;
-    padding: 32px 24px;
-    background: #ffffff;
+    padding: 48px 0px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7fafd 100%);
 
-    // ===== Top feature cards =====
     &__grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
-        margin-bottom: 36px;
+        margin-bottom: 40px;
 
         @media (max-width: 768px) {
             grid-template-columns: 1fr;
         }
     }
 
-    // ===== Certificates header =====
     &__cert-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 8px;
-        margin-bottom: 18px;
+        margin-bottom: 22px;
     }
 
     &__cert-title {
-        font-size: 17px;
+        font-size: 18px;
         font-weight: 700;
         margin: 0;
+        position: relative;
+        padding-left: 14px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 4px;
+            border-radius: 4px;
+            background: linear-gradient(180deg, #17c3d6, #0d7ea8);
+        }
     }
 
     &__cert-note {
-        font-size: 12px;
+        font-size: 12.5px;
         color: #2f8bf0;
     }
 
-    // ===== Document cards =====
     &__docs {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
-        margin-bottom: 28px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 30px;
 
         @media (max-width: 768px) {
             grid-template-columns: 1fr;
         }
     }
 
-    // ===== Commitment bar =====
     &__commitment {
         position: relative;
         display: flex;
         align-items: center;
         gap: 16px;
         background: #eef4fb;
-        border-radius: 10px;
-        padding: 18px 24px;
+        border-radius: 14px;
+        padding: 20px 24px;
         overflow: hidden;
+        transition: box-shadow 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 10px 24px rgba(47, 139, 240, 0.15);
+        }
     }
 
     &__commitment-icon {
@@ -190,17 +495,32 @@
     }
 }
 
-// ===== Feature card =====
 .feature-card {
     border: 1px solid #e3e8ef;
-    border-radius: 10px;
-    padding: 18px;
+    border-radius: 14px;
+    padding: 20px;
+    background: #ffffff;
+    opacity: 0;
+    animation: fadeUp 0.6s ease-out forwards;
+    animation-delay: var(--delay, 0s);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+        transform: translateY(-6px);
+        border-color: transparent;
+        box-shadow: 0 16px 30px rgba(20, 40, 70, 0.1);
+    }
 
     &__icon {
         width: 26px;
         height: 26px;
         color: #2f8bf0;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover &__icon {
+        transform: scale(1.15) rotate(-4deg);
     }
 
     &__title {
@@ -217,57 +537,113 @@
     }
 }
 
-// ===== Document card =====
 .doc-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     border: 1px solid #e3e8ef;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 14px;
+    padding: 22px;
     background: #ffffff;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeUp 0.6s ease-out forwards;
+    animation-delay: var(--delay, 0s);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+
+    &:hover {
+        transform: translateY(-6px);
+        border-color: transparent;
+        box-shadow: 0 20px 36px rgba(20, 40, 70, 0.12);
+    }
+
+    &__glow {
+        position: absolute;
+        top: -40%;
+        right: -20%;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(23, 195, 214, 0.18), transparent 70%);
+        animation: pulseGlow 4s ease-in-out infinite;
+        pointer-events: none;
+    }
 
     &__icon {
-        align-self: center;
         width: 34px;
         height: 34px;
         color: #2f8bf0;
-        margin: 8px 0 10px;
+        margin-bottom: 10px;
+        transition: transform 0.3s ease;
     }
 
-    &__placeholder {
-        align-self: center;
+    &:hover &__icon {
+        transform: scale(1.1) rotate(4deg);
+    }
+
+    &__number {
         font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 1px;
         color: #9aa4b2;
-        margin-bottom: 16px;
+        margin-bottom: 6px;
     }
 
     &__name {
-        font-size: 13.5px;
+        font-size: 14.5px;
         font-weight: 700;
-        margin: 0 0 12px;
+        margin: 0 0 18px;
+        color: #1a2233;
     }
 
     &__download {
+        position: relative;
         display: flex;
         align-items: center;
-        gap: 6px;
-        font-size: 12.5px;
+        gap: 8px;
+        font-size: 13px;
         font-weight: 600;
-        color: #2f8bf0;
+        color: #ffffff;
         text-decoration: none;
+        padding: 10px 18px;
+        border-radius: 999px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #17c3d6, #0d7ea8);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
 
         svg {
-            width: 14px;
-            height: 14px;
+            width: 15px;
+            height: 15px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.25s ease;
         }
 
-        span:last-of-type {
-            margin-left: auto;
+        span {
+            position: relative;
+            z-index: 1;
         }
 
         &:hover {
-            text-decoration: underline;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(13, 126, 168, 0.35);
+
+            svg {
+                transform: translateY(2px);
+            }
         }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+
+    &__download-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+        background-size: 200% 100%;
+        animation: shimmer 2.5s linear infinite;
     }
 }

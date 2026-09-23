@@ -28,7 +28,7 @@ const Export = () => {
           подход, чтобы создавать ценность для светлого будущего.
         </p>
 
-        <a className="export__link" href="/about">
+        <a className="export__link" href="/company">
           <span>О компании</span>
           <svg
             viewBox="0 0 24 24"
