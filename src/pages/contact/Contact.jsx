@@ -9,8 +9,8 @@ const MAP_SRC =
 const DIRECTIONS_HREF =
     "https://www.google.com/maps/search/?api=1&query=Amir+Timur+48+Namangan+Uzbekistan"
 
-const PHONE = { text: "+998 XX XXX XX XX", href: "tel:+998XXXXXXXXX" }
-const EMAIL = { text: "info@company.uz", href: "mailto:info@company.uz" }
+const PHONE = { text: "+998 88 270 07 69", href: "tel:+998 88 270 07 69" }
+const EMAIL = { text: "info@interiormegamax.uz ", href: "mailto:info@interiormegamax.uz " }
 
 const contactItems = [
     {
