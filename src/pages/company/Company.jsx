@@ -1,27 +1,25 @@
 // import React, { useEffect, useRef, useState } from 'react'
-// import img from "../../assets/images/company.png"
+// import img from "../../assets/images/company.webp"
 
 // import "./company.scss"
 
-// const HERO_IMAGE = "/images/company/hero.jpg"
-
 // const stats = [
-//     { end: 15, suffix: "+", label: "Years of experience" },
-//     { end: 300, suffix: "+", label: "Team members" },
-//     { end: 120, suffix: "+", label: "Products manufactured" },
-//     { end: 2, suffix: "", label: "Certified quality systems" },
+//     { end: 15, suffix: "+", label: "Лет опыта" },
+//     { end: 300, suffix: "+", label: "Сотрудников" },
+//     { end: 120, suffix: "+", label: "Видов продукции" },
+//     { end: 2, suffix: "", label: "Сертифицированные системы качества" },
 // ]
 
 // const milestones = [
-//     { year: "2010", text: "Company founded with a clear vision." },
-//     { year: "2016", text: "Expanded production capabilities." },
-//     { year: "2024", text: "Continuing to grow together." },
+//     { year: "2010", text: "Компания основана с чёткой целью и видением." },
+//     { year: "2016", text: "Расширили производственные мощности." },
+//     { year: "2024", text: "Продолжаем расти вместе." },
 // ]
 
 // const values = [
 //     {
-//         title: "Quality first",
-//         text: "Every part is checked against the standards our customers and certificates require.",
+//         title: "Качество прежде всего",
+//         text: "Каждая деталь проверяется на соответствие стандартам, которых требуют наши клиенты и сертификаты.",
 //         icon: (
 //             <>
 //                 <circle cx="12" cy="8" r="7" />
@@ -30,8 +28,8 @@
 //         ),
 //     },
 //     {
-//         title: "Modern technology",
-//         text: "We invest in equipment and processes that keep production precise and repeatable.",
+//         title: "Современные технологии",
+//         text: "Мы инвестируем в оборудование и процессы, обеспечивающие точное и воспроизводимое производство.",
 //         icon: (
 //             <>
 //                 <rect x="4" y="4" width="16" height="16" rx="2" />
@@ -41,8 +39,8 @@
 //         ),
 //     },
 //     {
-//         title: "Our people",
-//         text: "Skilled, motivated teams are the reason our components are made right the first time.",
+//         title: "Наши люди",
+//         text: "Квалифицированные и мотивированные команды — причина того, что наши компоненты выпускаются правильно с первого раза.",
 //         icon: (
 //             <>
 //                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -53,8 +51,8 @@
 //         ),
 //     },
 //     {
-//         title: "Continuous improvement",
-//         text: "We keep refining our processes to raise reliability with every production batch.",
+//         title: "Постоянное улучшение",
+//         text: "Мы непрерывно совершенствуем процессы, повышая надёжность с каждой производственной партией.",
 //         icon: (
 //             <>
 //                 <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
@@ -65,11 +63,11 @@
 // ]
 
 // const process = [
-//     { title: "Design", text: "We study the part and agree on drawings and requirements." },
-//     { title: "Materials", text: "Raw materials are selected and inspected on arrival." },
-//     { title: "Production", text: "Components are manufactured on modern equipment." },
-//     { title: "Quality control", text: "Each batch is tested before it leaves the plant." },
-//     { title: "Delivery", text: "Orders are packed and delivered on the agreed schedule." },
+//     { title: "Проектирование", text: "Изучаем деталь и согласовываем чертежи и требования." },
+//     { title: "Материалы", text: "Сырьё подбирается и проверяется при поступлении." },
+//     { title: "Производство", text: "Компоненты изготавливаются на современном оборудовании." },
+//     { title: "Контроль качества", text: "Каждая партия проходит испытания перед отгрузкой." },
+//     { title: "Поставка", text: "Заказы упаковываются и доставляются в согласованные сроки." },
 // ]
 
 // const ArrowIcon = ({ className }) => (
@@ -114,6 +112,43 @@
 //     </svg>
 // )
 
+// /* Bir marta ko'ringanda true bo'ladi */
+// const useInView = (threshold = 0.2) => {
+//     const ref = useRef(null)
+//     const [seen, setSeen] = useState(false)
+
+//     useEffect(() => {
+//         const el = ref.current
+//         if (!el) return
+
+//         if (typeof IntersectionObserver === "undefined") {
+//             setSeen(true)
+//             return
+//         }
+
+//         const observer = new IntersectionObserver(([entry]) => {
+//             if (!entry.isIntersecting) return
+//             setSeen(true)
+//             observer.disconnect()
+//         }, { threshold })
+
+//         observer.observe(el)
+//         return () => observer.disconnect()
+//     }, [threshold])
+
+//     return [ref, seen]
+// }
+
+// const Section = ({ className, threshold, children }) => {
+//     const [ref, seen] = useInView(threshold)
+
+//     return (
+//         <section ref={ref} className={className + (seen ? " is-in" : "")}>
+//             {children}
+//         </section>
+//     )
+// }
+
 // const useCountUp = (end, duration = 1400) => {
 //     const ref = useRef(null)
 //     const [value, setValue] = useState(0)
@@ -153,11 +188,16 @@
 //     return [ref, value]
 // }
 
-// const StatItem = ({ end, suffix, label }) => {
+// const StatItem = ({ end, suffix, label, index }) => {
 //     const [ref, value] = useCountUp(end)
 
 //     return (
-//         <div className="company__stat" ref={ref}>
+//         <div
+//             className="company__stat"
+//             ref={ref}
+//             data-anim
+//             style={{ "--i": index }}
+//         >
 //             <span className="company__stat-value">
 //                 {value}
 //                 {suffix}
@@ -167,56 +207,66 @@
 //     )
 // }
 
-
 // const Company = () => {
 //     return (
 //         <main className="company">
 
-//             {/* Hero */}
-//             <section
-//                 className="company__hero"
-//                 style={{ backgroundImage: `url(${img})` }}
-//             >
+//             <section className="company__hero">
+//                 <div
+//                     className="company__hero-bg"
+//                     style={{ backgroundImage: `url(${img})` }}
+//                 />
 //                 <div className="company__hero-inner container">
-//                     <span className="company__hero-label">About the company</span>
+//                     <span className="company__hero-label">О компании</span>
 //                     <h1 className="company__hero-title">
-//                         Built on people.
-//                         <br />
-//                         Driven by precision.
+//                         <span className="company__line">
+//                             <span style={{ "--l": 0 }}>В основе - люди.</span>
+//                         </span>
+//                         <span className="company__line">
+//                             <span style={{ "--l": 1 }}>В приоритете - точность.</span>
+//                         </span>
 //                     </h1>
 //                     <p className="company__hero-text">
-//                         We manufacture modern automotive interior components through
-//                         technology, quality and close collaboration with our customers.
+//                         Мы производим современные компоненты автомобильного салона на
+//                         основе технологий, качества и тесного сотрудничества с нашими
+//                         заказчиками.
 //                     </p>
 //                 </div>
 //             </section>
 
-//             <section className="company__stats-wrap">
+//             <Section className="company__stats-wrap" threshold={0.3}>
 //                 <div className="container">
 //                     <div className="company__stats">
-//                         {stats.map((item) => (
-//                             <StatItem key={item.label} {...item} />
+//                         {stats.map((item, index) => (
+//                             <StatItem key={item.label} index={index} {...item} />
 //                         ))}
 //                     </div>
 //                 </div>
-//             </section>
+//             </Section>
 
-//             <section className="company__about">
+//             <Section className="company__about">
 //                 <div className="company__about-inner container">
-//                     <div className="company__mission">
-//                         <h2 className="company__heading">Our mission</h2>
+//                     <div className="company__mission" data-anim>
+//                         <h2 className="company__heading">Наша миссия</h2>
 //                         <p className="company__mission-text">
-//                             To create value for our customers by manufacturing high-quality
-//                             automotive interior components, through continuous improvement,
-//                             modern technology and our people.
+//                             Создавать ценность для наших клиентов, выпуская качественные
+//                             компоненты автомобильного салона за счёт постоянного
+//                             совершенствования, современных технологий и наших людей.
 //                         </p>
 //                     </div>
 
 //                     <div className="company__journey">
-//                         <h2 className="company__heading">Our journey</h2>
+//                         <h2 className="company__heading" data-anim style={{ "--i": 1 }}>
+//                             Наш путь
+//                         </h2>
 //                         <ol className="company__timeline">
-//                             {milestones.map((item) => (
-//                                 <li className="company__milestone" key={item.year}>
+//                             {milestones.map((item, index) => (
+//                                 <li
+//                                     className="company__milestone"
+//                                     key={item.year}
+//                                     data-anim
+//                                     style={{ "--i": index + 2 }}
+//                                 >
 //                                     <span className="company__dot" />
 //                                     <span className="company__year">{item.year}</span>
 //                                     <p className="company__milestone-text">{item.text}</p>
@@ -225,24 +275,29 @@
 //                         </ol>
 //                     </div>
 //                 </div>
-//             </section>
+//             </Section>
 
 //             {/* Values */}
-//             <section className="company__values">
+//             <Section className="company__values">
 //                 <div className="container">
-//                     <div className="company__section-head">
+//                     <div className="company__section-head" data-anim>
 //                         <h2 className="company__heading company__heading--lg">
-//                             What we stand for
+//                             Наши принципы
 //                         </h2>
 //                         <p className="company__section-text">
-//                             Four principles guide how we work with our customers and with
-//                             each other.
+//                             Четыре принципа определяют, как мы работаем с клиентами и друг
+//                             с другом.
 //                         </p>
 //                     </div>
 
 //                     <div className="company__values-grid">
-//                         {values.map((item) => (
-//                             <article className="company__value" key={item.title}>
+//                         {values.map((item, index) => (
+//                             <article
+//                                 className="company__value"
+//                                 key={item.title}
+//                                 data-anim
+//                                 style={{ "--i": index + 1 }}
+//                             >
 //                                 <svg
 //                                     className="company__value-icon"
 //                                     width="32"
@@ -263,24 +318,29 @@
 //                         ))}
 //                     </div>
 //                 </div>
-//             </section>
+//             </Section>
 
 //             {/* Process */}
-//             <section className="company__process">
+//             <Section className="company__process" threshold={0.15}>
 //                 <div className="container">
-//                     <div className="company__section-head">
+//                     <div className="company__section-head" data-anim>
 //                         <h2 className="company__heading company__heading--lg">
-//                             From drawing to delivery
+//                             От чертежа до поставки
 //                         </h2>
 //                         <p className="company__section-text">
-//                             Every order follows the same five steps, so the result stays
-//                             consistent from the first batch to the last.
+//                             Каждый заказ проходит одни и те же пять этапов, поэтому
+//                             результат остаётся стабильным от первой партии до последней.
 //                         </p>
 //                     </div>
 
 //                     <ol className="company__steps">
 //                         {process.map((item, index) => (
-//                             <li className="company__step" key={item.title}>
+//                             <li
+//                                 className="company__step"
+//                                 key={item.title}
+//                                 data-anim
+//                                 style={{ "--i": index + 1 }}
+//                             >
 //                                 <span className="company__step-number">{index + 1}</span>
 //                                 <div className="company__step-body">
 //                                     <h3 className="company__step-title">{item.title}</h3>
@@ -290,25 +350,29 @@
 //                         ))}
 //                     </ol>
 //                 </div>
-//             </section>
+//             </Section>
 
-//             {/* CTA */}
-//             <section className="company__cta">
+//             <Section className="company__cta" threshold={0.35}>
 //                 <TriangleMark className="company__cta-mark" />
 //                 <div className="company__cta-inner container">
-//                     <div className="company__cta-info">
-//                         <h2 className="company__cta-title">Let's build what's next.</h2>
+//                     <div className="company__cta-info" data-anim>
+//                         <h2 className="company__cta-title">Создадим будущее вместе.</h2>
 //                         <p className="company__cta-text">
-//                             Stronger partnerships. A brighter future for your car.
+//                             Крепкое партнёрство. Светлое будущее для вашего автомобиля.
 //                         </p>
 //                     </div>
 
-//                     <a href="/contact" className="company__cta-button">
-//                         Contact us
+//                     <a
+//                         href="/contact"
+//                         className="company__cta-button"
+//                         data-anim
+//                         style={{ "--i": 2 }}
+//                     >
+//                         Связаться с нами
 //                         <ArrowIcon className="company__cta-icon" />
 //                     </a>
 //                 </div>
-//             </section>
+//             </Section>
 //         </main>
 //     )
 // }
@@ -322,16 +386,22 @@ import img from "../../assets/images/company.webp"
 import "./company.scss"
 
 const stats = [
-    { end: 15, suffix: "+", label: "Лет опыта" },
-    { end: 300, suffix: "+", label: "Сотрудников" },
-    { end: 120, suffix: "+", label: "Видов продукции" },
-    { end: 2, suffix: "", label: "Сертифицированные системы качества" },
+    { end: 2016, label: "Год основания" },
+    { end: 250, label: "Сотрудников (2025)" },
+    { end: 20, prefix: "$", suffix: " млн", label: "Объём продаж в год" },
+    { end: 300000, group: true, label: "Комплектов — текущая мощность" },
+]
+
+const facts = [
+    { value: "1,50 га", label: "Общая площадь" },
+    { value: "2 400 м²", label: "Площадь здания" },
 ]
 
 const milestones = [
-    { year: "2010", text: "Компания основана с чёткой целью и видением." },
-    { year: "2016", text: "Расширили производственные мощности." },
-    { year: "2024", text: "Продолжаем расти вместе." },
+    { year: "2016", text: "Компания основана." },
+    { year: "2022", text: "Получен сертификат IATF 16949:2016." },
+    { year: "2024", text: "АВТОВАЗ оценил нашу работу на «B»." },
+    { year: "2025", text: "Сертификат IATF обновлён, в команде 250 человек." },
 ]
 
 const values = [
@@ -386,6 +456,26 @@ const process = [
     { title: "Производство", text: "Компоненты изготавливаются на современном оборудовании." },
     { title: "Контроль качества", text: "Каждая партия проходит испытания перед отгрузкой." },
     { title: "Поставка", text: "Заказы упаковываются и доставляются в согласованные сроки." },
+]
+
+const certificates = [
+    { name: "IATF 16949", text: "Стандарт менеджмента качества для автомобильной отрасли." },
+    { name: "ISO 9001", text: "Международный стандарт системы менеджмента качества." },
+    { name: "ISO 9001 (loc.)", text: "Сертификат IQNet, подтверждающий систему качества." },
+]
+
+const qualityDocs = [
+    { name: "IATF 16949:2016", date: "2022", agency: "URS", updated: "2025" },
+]
+
+const clientRatings = [
+    { client: "АВТОВАЗ", grade: "B", date: "2024" },
+]
+
+const phones = [
+    { label: "+998 88 270 07 69", href: "+998882700769" },
+    { label: "+998 93 582 13 33", href: "+998935821333" },
+    { label: "+998 93 400 75 34", href: "+998934007534" },
 ]
 
 const ArrowIcon = ({ className }) => (
@@ -506,7 +596,7 @@ const useCountUp = (end, duration = 1400) => {
     return [ref, value]
 }
 
-const StatItem = ({ end, suffix, label, index }) => {
+const StatItem = ({ end, prefix = "", suffix = "", group, label, index }) => {
     const [ref, value] = useCountUp(end)
 
     return (
@@ -517,7 +607,8 @@ const StatItem = ({ end, suffix, label, index }) => {
             style={{ "--i": index }}
         >
             <span className="company__stat-value">
-                {value}
+                {prefix}
+                {group ? value.toLocaleString("ru-RU") : value}
                 {suffix}
             </span>
             <span className="company__stat-label">{label}</span>
@@ -545,9 +636,9 @@ const Company = () => {
                         </span>
                     </h1>
                     <p className="company__hero-text">
-                        Мы производим современные компоненты автомобильного салона на
-                        основе технологий, качества и тесного сотрудничества с нашими
-                        заказчиками.
+                        СП ООО «Интерьер Мега Макс» производит современные компоненты
+                        автомобильного салона на основе технологий, качества и тесного
+                        сотрудничества с нашими заказчиками.
                     </p>
                 </div>
             </section>
@@ -571,6 +662,15 @@ const Company = () => {
                             компоненты автомобильного салона за счёт постоянного
                             совершенствования, современных технологий и наших людей.
                         </p>
+
+                        <div className="company__facts">
+                            {facts.map((item) => (
+                                <div className="company__fact" key={item.label}>
+                                    <span className="company__fact-value">{item.value}</span>
+                                    <span className="company__fact-label">{item.label}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     <div className="company__journey">
@@ -670,14 +770,106 @@ const Company = () => {
                 </div>
             </Section>
 
+            {/* Certificates */}
+            <Section className="company__certs" threshold={0.15}>
+                <div className="container">
+                    <div className="company__section-head" data-anim>
+                        <h2 className="company__heading company__heading--lg">
+                            Сертификаты
+                        </h2>
+                        <p className="company__section-text">
+                            Наша система качества подтверждена международными
+                            стандартами и оценкой клиентов.
+                        </p>
+                    </div>
+
+                    <div className="company__certs-grid">
+                        {certificates.map((item, index) => (
+                            <article
+                                className="company__cert"
+                                key={item.name}
+                                data-anim
+                                style={{ "--i": index + 1 }}
+                            >
+                                <h3 className="company__cert-name">{item.name}</h3>
+                                <p className="company__cert-text">{item.text}</p>
+                            </article>
+                        ))}
+                    </div>
+
+                    <div className="company__tables">
+                        <div className="company__table-block" data-anim style={{ "--i": 4 }}>
+                            <h3 className="company__table-title">Система контроля качества</h3>
+                            <div className="company__table-scroll">
+                                <table className="company__table">
+                                    <thead>
+                                        <tr>
+                                            <th>Название документа</th>
+                                            <th>Дата получения</th>
+                                            <th>Удостоверяющее агентство</th>
+                                            <th>Обновлено</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {qualityDocs.map((row) => (
+                                            <tr key={row.name}>
+                                                <td>{row.name}</td>
+                                                <td>{row.date}</td>
+                                                <td>{row.agency}</td>
+                                                <td>{row.updated}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div className="company__table-block" data-anim style={{ "--i": 5 }}>
+                            <h3 className="company__table-title">Оценка клиентов</h3>
+                            <div className="company__table-scroll">
+                                <table className="company__table">
+                                    <thead>
+                                        <tr>
+                                            <th>Клиент</th>
+                                            <th>Оценка</th>
+                                            <th>Дата</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {clientRatings.map((row) => (
+                                            <tr key={row.client}>
+                                                <td>{row.client}</td>
+                                                <td>{row.grade}</td>
+                                                <td>{row.date}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Section>
+
             <Section className="company__cta" threshold={0.35}>
                 <TriangleMark className="company__cta-mark" />
                 <div className="company__cta-inner container">
                     <div className="company__cta-info" data-anim>
-                        <h2 className="company__cta-title">Создадим будущее вместе.</h2>
+                        <h2 className="company__cta-title">Bright future your car</h2>
                         <p className="company__cta-text">
                             Крепкое партнёрство. Светлое будущее для вашего автомобиля.
                         </p>
+                        <div className="company__phones">
+                            {phones.map((item) => (
+                                <a
+                                    className="company__phone"
+                                    key={item.href}
+                                    href={`tel:${item.href}`}
+                                >
+                                    {item.label}
+                                </a>
+                            ))}
+                        </div>
                     </div>
 
                     <a
