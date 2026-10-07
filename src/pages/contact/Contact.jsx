@@ -4,10 +4,10 @@ import img from "../../assets/images/contact.webp";
 import "./contact.scss";
 
 const MAP_SRC =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d769723.3586670348!2d70.60036705384373!3d41.09670472433149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38a4c708e5b54231%3A0x4e71cd6bb0e2df44!2sNamangan%20Region%2C%20Uzbekistan!5e0!3m2!1sru!2s!4v1789802128067!5m2!1sru!2s";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48172.508871030994!2d71.56191760087279!3d41.008148736174086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb4b1b132e8431%3A0x60c8d9d7fd9469b7!2sDavlatobod%20tumani%20hokimligi!5e0!3m2!1sen!2s!4v1791364368790!5m2!1sen!2s";
 
 const DIRECTIONS_HREF =
-  "https://www.google.com/maps/search/?api=1&query=Amir+Timur+48+Namangan+Uzbekistan";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48172.508871030994!2d71.56191760087279!3d41.008148736174086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb4b1b132e8431%3A0x60c8d9d7fd9469b7!2sDavlatobod%20tumani%20hokimligi!5e0!3m2!1sen!2s!4v1791364368790!5m2!1sen!2s";
 
 const PHONE = { text: "+998(55) - 255-2277", href: "tel:+998 88 270 07 69" };
 const EMAIL = {
@@ -280,7 +280,10 @@ const Contact = () => {
 
         <div className="contact__map-card">
           <p className="contact__map-name">Interior Mega Max</p>
-          <p className="contact__map-address">ул. Амира Темура, 48, Наманган</p>
+          <p className="contact__map-address">
+            Наманган вилояти Наманган шахри Давлатобод тумани Тадбиркор МФЙ
+            7-Нуробод кўчаси 50-уй
+          </p>
           <a
             className="contact__map-link"
             href={DIRECTIONS_HREF}
