@@ -32,7 +32,7 @@ const contactInfo = [
     ),
   },
   {
-    label: "+998(55) - 255-2277",
+    label: ["+998(55) 255 22 77", "+998(50) 553 07 69", "+998(93) 400 7534"],
     icon: (
       <svg
         width="18"
@@ -111,11 +111,25 @@ const HomeContact = () => {
           </h2>
 
           <ul className="home-contact__list">
-            {contactInfo.map((item) => (
-              <li className="home-contact__list-item" key={item.label}>
+            {contactInfo.map((item, index) => (
+              <li className="home-contact__list-item" key={index}>
                 <span className="home-contact__list-icon">{item.icon}</span>
 
-                <span className="home-contact__list-text">{item.label}</span>
+                {Array.isArray(item.label) ? (
+                  <span className="home-contact__list-text home-contact__list-phones">
+                    {item.label.map((phone) => (
+                      <a
+                        key={phone}
+                        className="home-contact__list-phone"
+                        href={`tel:+${phone.replace(/\D/g, "")}`}
+                      >
+                        {phone.trim()}
+                      </a>
+                    ))}
+                  </span>
+                ) : (
+                  <span className="home-contact__list-text">{item.label}</span>
+                )}
               </li>
             ))}
           </ul>

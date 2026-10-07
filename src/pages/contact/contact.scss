@@ -27,6 +27,12 @@ $radius: 20px;
         outline-offset: 3px;
     }
 
+    &__item-phones {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
     &__heading {
         margin: 0 0 24px;
         color: $ink;

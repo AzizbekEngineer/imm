@@ -9,10 +9,20 @@ const MAP_SRC =
 const DIRECTIONS_HREF =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48172.508871030994!2d71.56191760087279!3d41.008148736174086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb4b1b132e8431%3A0x60c8d9d7fd9469b7!2sDavlatobod%20tumani%20hokimligi!5e0!3m2!1sen!2s!4v1791364368790!5m2!1sen!2s";
 
-const PHONE = { text: "+998(55) - 255-2277", href: "tel:+998 88 270 07 69" };
+const PHONE_NUMBERS = [
+  "+998(55) 255 22 77",
+  "+998(50) 553 07 69",
+  "+998(93) 400 75 34",
+];
+
+// "+998(55) 255 22 77" -> "tel:+998552552277"
+const toTelHref = (phone) => `tel:+${phone.replace(/\D/g, "")}`;
+
+const PHONES = PHONE_NUMBERS.map((text) => ({ text, href: toTelHref(text) }));
+
 const EMAIL = {
-  text: "info@interiormegamax.uz ",
-  href: "mailto:info@interiormegamax.uz ",
+  text: "info@interiormegamax.uz",
+  href: "mailto:info@interiormegamax.uz",
 };
 
 const contactItems = [
@@ -21,7 +31,7 @@ const contactItems = [
     value: 'ООО "Interior Mega Max"',
     note: "Наманганская область, г. Наманган, Давлатабадский район, МСГ Тадбиркор, ул. 7-Нурабад, дом 50",
   },
-  { label: "Телефон", value: PHONE.text, href: PHONE.href },
+  { label: "Телефон", phones: PHONES },
   { label: "Эл. почта", value: EMAIL.text, href: EMAIL.href },
   { label: "Часы работы", value: "Пн – Пт", note: "09:00 – 18:00" },
 ];
@@ -116,9 +126,15 @@ const Contact = () => {
           </p>
 
           <div className="contact__hero-links">
-            <a className="contact__hero-link" href={PHONE.href}>
-              {PHONE.text}
-            </a>
+            {PHONES.map((phone) => (
+              <a
+                key={phone.text}
+                className="contact__hero-link"
+                href={phone.href}
+              >
+                {phone.text}
+              </a>
+            ))}
             <a className="contact__hero-link" href={EMAIL.href}>
               {EMAIL.text}
             </a>
@@ -136,7 +152,19 @@ const Contact = () => {
                 <div className="contact__item" key={item.label}>
                   <dt className="contact__item-label">{item.label}</dt>
                   <dd className="contact__item-body">
-                    {item.href ? (
+                    {item.phones ? (
+                      <span className="contact__item-phones">
+                        {item.phones.map((phone) => (
+                          <a
+                            key={phone.text}
+                            href={phone.href}
+                            className="contact__item-value"
+                          >
+                            {phone.text}
+                          </a>
+                        ))}
+                      </span>
+                    ) : item.href ? (
                       <a href={item.href} className="contact__item-value">
                         {item.value}
                       </a>

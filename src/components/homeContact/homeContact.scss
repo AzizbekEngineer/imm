@@ -42,6 +42,21 @@
         gap: 18px;
     }
 
+    &__list-phones {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__list-phone {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     &__list-item {
         display: flex;
         align-items: center;
