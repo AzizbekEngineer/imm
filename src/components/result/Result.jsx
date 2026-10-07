@@ -82,7 +82,7 @@ const stats = [
   {
     id: 2,
     icon: <FactoryIcon />,
-    value: "500K",
+    value: "300K",
     label: "Производственная мощность",
     tone: "accent",
   },
