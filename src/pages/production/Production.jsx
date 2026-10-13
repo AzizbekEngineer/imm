@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import img1 from "../../assets/images/product1.webp";
 import img2 from "../../assets/images/product2.webp";
+import img3 from "../../assets/images/product3.webp";
 import products, { ALL_CATEGORY, categories } from "../../static/index";
 
 import "./production.scss";
@@ -60,7 +61,7 @@ const technology = [
     id: 2,
     title: "СБОРОЧНАЯ ЛИНИЯ",
     text: ["2 линии сборки для передних фар", "2 линии сборки задних фонарей", "1 линия сборки мелких фонарей"],
-    image: img2,
+    image: img3,
     alt: "Литьевые машины в цехе",
     href: "/production/injection-molding",
   }
