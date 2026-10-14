@@ -7,8 +7,7 @@ const MAP_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48172.508871030994!2d71.56191760087279!3d41.008148736174086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb4b1b132e8431%3A0x60c8d9d7fd9469b7!2sDavlatobod%20tumani%20hokimligi!5e0!3m2!1sen!2s!4v1791364368790!5m2!1sen!2s";
 
 const DIRECTIONS_HREF =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48172.508871030994!2d71.56191760087279!3d41.008148736174086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb4b1b132e8431%3A0x60c8d9d7fd9469b7!2sDavlatobod%20tumani%20hokimligi!5e0!3m2!1sen!2s!4v1791364368790!5m2!1sen!2s";
-
+  "https://www.google.com/maps/dir/?api=1&destination=41.008148,71.561917";
 const PHONE_NUMBERS = [
   "+998(55) 255 22 77",
   "+998(50) 553 07 69",
